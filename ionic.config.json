@@ -1,0 +1,7 @@
+{
+  "name": "ferreteria",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

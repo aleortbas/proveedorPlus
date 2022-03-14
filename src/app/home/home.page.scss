@@ -25,3 +25,31 @@
 #container a {
   text-decoration: none;
 }
+
+ion-header.masterHeader{
+  --ion-background-color: #c8cac8;  
+  ion-title{
+    color: #03204e;
+  }
+}
+
+ion-content.login{
+  --ion-background-color: #c8cac8;
+  ion-card-subtitle{
+    color: #03204e;    
+  }
+  ion-card-title{
+    color: #03204e;
+  }
+}
+
+ion-card{
+  height: 350px;
+  border-radius: 15px;
+  --ion-background-color: #e4e4e4;
+}
+
+ion-button{
+  margin-top: 15%;
+  --background: #03204e;
+}

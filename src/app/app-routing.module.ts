@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'ferre',
+    loadChildren: () => import('./ferre/ferre.module').then( m => m.FerrePageModule)
+  },
 ];
 
 @NgModule({

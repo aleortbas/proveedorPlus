@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-martillos',
@@ -9,14 +9,30 @@ import { Router } from '@angular/router';
 export class MartillosPage implements OnInit {
 
   martillo:string;
+  precio:string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private activatedRouter:ActivatedRoute) {
+    //this.activatedRouter.paramMap.subscribe(
+      //(data) => {
+        //console.log(data)
+      //}
+    //)
+  }
 
   go(){
     this.router.navigate(['ferre']);
   }
   factura(){
-    console.log("PRUEBA: " + this.martillo)
+
+    const nombre = this.martillo.split(",");
+
+    let producto = {
+      'nombre': nombre[0],
+      'precio': nombre[1]
+    }
+
+    this.router.navigate(['factura/' + JSON.stringify(producto)]);
+    //console.log("PRUEBA: " + this.martillo + "PREUBA: " + this.precio);
   }
 
   ngOnInit() {

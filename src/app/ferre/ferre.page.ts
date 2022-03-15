@@ -13,6 +13,22 @@ export class FerrePage implements OnInit {
   go(){
     this.router.navigate(['home']); 
   }
+  martillos(){
+    this.router.navigate(['martillos']);
+  }
+  taladros(){
+    this.router.navigate(['taladros']);
+  }
+  destornilladores(){
+    this.router.navigate(['destornilladores']);
+  }
+  alicates(){
+    this.router.navigate(['alicates']);
+  }
+  metros(){
+    this.router.navigate(['metros']);
+  }
+
   ngOnInit() {
   }
 

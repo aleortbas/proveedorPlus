@@ -15,5 +15,12 @@ ion-icon{
 
 ion-card{
     --ion-background-color: #c8cac8;
+    .innerCard{
+        --ion-background-color: #ffffff;
+    }
 }
 
+h2{
+    text-align: center;
+    color: #03204e;
+}

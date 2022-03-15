@@ -15,6 +15,26 @@ const routes: Routes = [
     path: 'ferre',
     loadChildren: () => import('./ferre/ferre.module').then( m => m.FerrePageModule)
   },
+  {
+    path: 'martillos',
+    loadChildren: () => import('./martillos/martillos.module').then( m => m.MartillosPageModule)
+  },
+  {
+    path: 'taladros',
+    loadChildren: () => import('./taladros/taladros.module').then( m => m.TaladrosPageModule)
+  },
+  {
+    path: 'destornilladores',
+    loadChildren: () => import('./destornilladores/destornilladores.module').then( m => m.DestornilladoresPageModule)
+  },
+  {
+    path: 'alicates',
+    loadChildren: () => import('./alicates/alicates.module').then( m => m.AlicatesPageModule)
+  },
+  {
+    path: 'metros',
+    loadChildren: () => import('./metros/metros.module').then( m => m.MetrosPageModule)
+  },
 ];
 
 @NgModule({

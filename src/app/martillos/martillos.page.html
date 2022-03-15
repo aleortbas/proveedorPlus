@@ -1,9 +1,77 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>martillos</ion-title>
+    <ion-title>Martillos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <!--NAV BAR-->
+  <ion-toolbar class="navBar">
+    <ion-buttons slot="secondary">
+      <ion-button (click)="go()" class="car">
+        <img src="assets\img\tooLogo.png" alt="">
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+      <ion-input [(ngModel)]="Buscar" placeholder="Buscar" type="text"></ion-input>
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <!--NAV BAR-->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="light" (click)="factura()">
+      <ion-icon name="add" style="color: #c8cac8;"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!--CARD--> 
+  <ion-card class="master">
+    <ion-card-content>
+
+      <ion-card class="innerCard">
+        <img src="assets\img\marillokarson.jpg"  (click)="martillos()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Karson</ion-card-subtitle>
+          <ion-card-title> Martillo una 13 onzas mango madera</ion-card-title>
+          <ion-radio-group [(ngModel)]="martillo">
+            <ion-radio color="light" value="karson"></ion-radio>
+          </ion-radio-group>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="innerCard">
+        <img src="assets\img\martilloRedline.jpg"  (click)="taladros()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Redline</ion-card-subtitle>
+          <ion-card-title>Martillo carpintero 20 onzas mango fibra</ion-card-title>
+          <ion-radio-group [(ngModel)]="martillo">
+            <ion-radio color="light" value="Redline"></ion-radio>
+          </ion-radio-group>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="innerCard">
+        <img src="assets\img\martilloUberman.jpg"  (click)="destornilladores()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Uberman</ion-card-subtitle>
+          <ion-card-title>Combo con mango FV</ion-card-title>
+          <ion-radio-group [(ngModel)]="martillo">
+            <ion-radio color="light" value="Uberman"></ion-radio>
+          </ion-radio-group>
+        </ion-card-header>
+      </ion-card>
+
+    </ion-card-content>
+  </ion-card>
+  <!--CARD-->
+
 
 </ion-content>

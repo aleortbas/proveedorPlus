@@ -1,7 +1,6 @@
 img{
     width: 100%;
     height: 100%;
-    margin-left: 7%;
 }
 
 img.imgSlide{
@@ -15,6 +14,7 @@ ion-icon{
 
 ion-card{
     --ion-background-color: #c8cac8;
+    border-radius: 10px;
     .innerCard{
         --ion-background-color: #ffffff;
     }

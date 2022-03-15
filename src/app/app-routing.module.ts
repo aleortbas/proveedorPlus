@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'metros',
     loadChildren: () => import('./metros/metros.module').then( m => m.MetrosPageModule)
   },
+  {
+    path: 'factura',
+    loadChildren: () => import('./factura/factura.module').then( m => m.FacturaPageModule)
+  },
 ];
 
 @NgModule({

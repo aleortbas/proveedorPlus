@@ -1,0 +1,29 @@
+ion-toolbar{
+    --ion-background-color: #c8cac8;
+}
+
+ion-content{
+    --ion-background-color: #c8cac8;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+ion-icon{
+    color: #03204e;
+}
+
+ion-card.master{
+    --ion-background-color: #ffffff;   
+    border-radius: 10px;
+    .innerCard{
+        --ion-background-color: #c8cac8;   
+    }
+}
+
+ion-card-title{
+    font-size: medium;
+    font-weight: bold;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-martillos',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MartillosPage implements OnInit {
 
-  constructor() { }
+  martillo:string;
+
+  constructor(private router: Router) {}
+
+  go(){
+    this.router.navigate(['ferre']);
+  }
+  factura(){
+    console.log("PRUEBA: " + this.martillo)
+  }
 
   ngOnInit() {
   }

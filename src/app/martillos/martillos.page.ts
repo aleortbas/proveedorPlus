@@ -31,7 +31,7 @@ export class MartillosPage implements OnInit {
       'precio': nombre[1]
     }
 
-    this.router.navigate(['factura/' + JSON.stringify(producto)]);
+    this.router.navigate(['factura/' + JSON.stringify(producto.nombre) + JSON.stringify(producto.precio)]);
     //console.log("PRUEBA: " + this.martillo + "PREUBA: " + this.precio);
   }
 

@@ -1,13 +1,74 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>factura</ion-title>
+    <ion-title>Factura</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <h3>
-    {{data}}
-  </h3>
+   <!--NAV BAR-->
+   <ion-toolbar class="navBar">
+    <ion-buttons slot="secondary">
+      <ion-button (click)="go()" class="car">
+        <img src="assets\img\tooLogo.png" alt="">
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+      <ion-input [(ngModel)]="Buscar" placeholder="Buscar" type="text"></ion-input>
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <!--NAV BAR-->
+
+  <ion-card>
+  
+    <ion-item>
+      <ion-label position="fixed"><b>Nombre:</b></ion-label>
+      <ion-input disabled>{{nombre}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed"><b>Precio:</b></ion-label>
+      <ion-input disabled>{{precio}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed"><b>Direccion:</b></ion-label>
+      <ion-input [(ngModel)]="Direccion"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed"><b>Telefono:</b></ion-label>
+      <ion-input [(ngModel)]="Telefono"></ion-input>
+    </ion-item>
+
+    <ion-list style="margin-top: 20px;" >
+      <ion-label class="labelList">Medio de pago</ion-label>
+      <ion-select multiple="true" cancelText="cancelar" onText="Aceptar" [(ngModel)]="pago">
+        <ion-select-option value="PSE">PSE</ion-select-option>
+        <ion-select-option value="Tarjeta">Tarjeta debito o credito</ion-select-option>
+        <ion-select-option value="Contra entrega">Pago contra entrega</ion-select-option>
+      </ion-select>
+    </ion-list>
+
+    <ion-item>
+      <ion-label>Entrega expres</ion-label>
+      <ion-toggle color="tertiary" value="foo" checked="true"  [(ngModel)]="Toggle"></ion-toggle>
+    </ion-item>
+
+    <ion-button class="pagar" color="tertiary" (click)="presentFactura()">
+      Pagar
+      <ion-icon name="checkbox-outline"></ion-icon>
+    </ion-button>
+
+  </ion-card>
+
+  
 
 </ion-content>

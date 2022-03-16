@@ -36,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./metros/metros.module').then( m => m.MetrosPageModule)
   },
   {
-    path: 'factura/:var',
+    path: 'factura/:nombre',
     loadChildren: () => import('./factura/factura.module').then( m => m.FacturaPageModule)
   },
 ];

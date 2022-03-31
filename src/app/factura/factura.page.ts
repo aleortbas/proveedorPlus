@@ -18,8 +18,6 @@ export class FacturaPage implements OnInit {
   Toggle:boolean;
   mensaje:string;
   
-
-
   constructor(private router: Router, private activatedRouter:ActivatedRoute, 
     public alertController:AlertController, public toastController:ToastController) {
    // this.activatedRouter.paramMap.subscribe(
@@ -85,13 +83,28 @@ export class FacturaPage implements OnInit {
   async presentToast(){
     const toast = await this.toastController.create({
       message: 'El mensaje fue borrado',
-      duration: 2000
+      duration: 2000,
+      position: 'top'
     });
     await toast.present();
   }
 
+  async showToasWithCloseButton(){
+    let toast = await this.toastController.create({
+      icon: 'information-circle',
+      position: 'bottom',
+      buttons: [{
+        side: 'start',
+        icon: 'start',
+        text: 'Aceptar',
+        handler: () =>{
+          console.log('Click en aceptar');
+        }
+      }]
+    });
+    await toast.present();
+  }
 
   ngOnInit() {
   }
-
 }

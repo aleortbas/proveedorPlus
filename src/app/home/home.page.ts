@@ -13,4 +13,7 @@ export class HomePage {
   go(){
     this.router.navigate(['ferre']);
   }
+  registro(){
+    this.router.navigate(['registro']);
+  }
 }

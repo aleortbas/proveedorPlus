@@ -1,0 +1,65 @@
+<ion-header [translucent]="true" class="masterHeader">
+  <ion-toolbar>
+    <ion-title>
+      Registro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login">
+  <ion-header collapse="condense">
+  </ion-header>
+
+  <img src="assets\img\login2.png" alt="">
+
+  
+      <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+        
+        <ion-item lines="full">
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="name" type="text"></ion-input>
+        </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">
+          El nombre es necesario
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.minlength">
+          El nombre podra tener minimo 2 caracteres.
+        </span>
+
+        <ion-item lines="full">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+          El correo electronico es necesario
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+          Por favor ingrese un correo valido.
+        </span>
+
+        <ion-item lines="full">
+          <ion-label position="floating"></ion-label>
+          <ion-datetime (ionChange)="getDate($event)" formControlName="dop" [value]="defaultDate"></ion-datetime>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-label position="floating">celular</ion-label>
+          <ion-input formControlName="mobile" type="text" maxlength="10"></ion-input>
+        </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required">
+          El numero celular es necesario
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.pattern">
+          Solo se permiten valores numericos.
+        </span>
+
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" expand="block">Enviar</ion-button>
+          </ion-col>
+        </ion-row>
+
+      </form>
+  
+</ion-content>
+

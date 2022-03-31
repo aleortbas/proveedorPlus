@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'factura/:nombre',
     loadChildren: () => import('./factura/factura.module').then( m => m.FacturaPageModule)
   },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
 ];
 
 @NgModule({

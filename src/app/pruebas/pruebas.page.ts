@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
-import { resolve } from 'dns';
+//import { resolve } from 'dns';
 import { HttpService } from '../services/http.service';
 
 
@@ -13,6 +13,13 @@ export class PruebasPage{
   url: string;
   data: string;
   usuarios: any;
+
+  items = [
+    { titulo:'Ingeniero', descripcion:'Mecatronica'},
+    { titulo:'Medico', descripcion:'Cirujano'},
+    { titulo:'Abogado', descripcion:'Civil'},
+    { titulo:'Quimico', descripcion:'Farmaceuta'}
+  ];
 
   constructor(private http:HttpService, public NavCtrl:NavController) { }
 

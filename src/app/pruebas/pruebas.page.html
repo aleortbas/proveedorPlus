@@ -22,7 +22,17 @@
         </ion-item>
       </ion-list>
       <ion-button expand="block" (click)="cargar()">Mostrar Usuarios</ion-button>
-      <ion-button expand="block" (click)="Post()">Peticion Post</ion-button>
+     <!-- <ion-button expand="block" (click)="Post()">Peticion Post</ion-button>-->
+     <ion-card *ngFor="let item of items">
+      <ion-card-header>
+        <ion-card-subtitle>
+          {{item.titulo}}
+        </ion-card-subtitle>
+        <ion-card-title>
+          {{item.descripcion}}
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
     </ion-content>
 
 </ion-content>

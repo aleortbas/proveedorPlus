@@ -16,4 +16,7 @@ export class HomePage {
   registro(){
     this.router.navigate(['registro']);
   }
+  prueba(){
+    this.router.navigate(['pruebas']);
+  }
 }

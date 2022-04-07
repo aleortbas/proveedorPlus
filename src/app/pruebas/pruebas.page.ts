@@ -21,6 +21,10 @@ export class PruebasPage{
     { titulo:'Quimico', descripcion:'Farmaceuta'}
   ];
 
+  Mostrar:boolean;
+  mostrar = true;
+
+
   constructor(private http:HttpService, public NavCtrl:NavController) { }
 
   cargar(){

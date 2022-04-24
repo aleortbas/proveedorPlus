@@ -36,7 +36,7 @@ export class PruebasPage{
         console.error(error);
       }
     );
-  }
+  }  
   /*Post(){
     const datos = {nombre:'Javier', emial:'jprerez@gmail.com'}
     const options = {

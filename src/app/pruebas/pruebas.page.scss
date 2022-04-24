@@ -1,0 +1,26 @@
+img{
+    width: 100%;
+    height: 100%;
+}
+
+img.imgSlide{
+    height: 10%; 
+    width: 80%;
+}
+
+ion-icon{
+    color: #03204e;
+}
+
+ion-card{
+    --ion-background-color: #c8cac8;
+    border-radius: 10px;
+    .innerCard{
+        --ion-background-color: #ffffff;
+    }
+}
+
+h2{
+    text-align: center;
+    color: #03204e;
+}

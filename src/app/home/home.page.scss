@@ -27,29 +27,60 @@
 }
 
 ion-header.masterHeader{
-  --ion-background-color: #c8cac8;  
+  --ion-background-color: #141416;  
   ion-title{
-    color: #03204e;
+    color: #ffffff;
   }
 }
 
 ion-content.login{
-  --ion-background-color: #c8cac8;
+  --ion-background-color: #141416;
   ion-card-subtitle{
-    color: #03204e;    
+    color: #000000;    
   }
   ion-card-title{
-    color: #03204e;
+    color: #000000;
   }
 }
 
 ion-card{
-  height: 350px;
+  height: 450px;
   border-radius: 15px;
+  margin-top: 80px;
   --ion-background-color: #e4e4e4;
 }
 
 ion-button{
   margin-top: 15%;
-  --background: #03204e;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  --background: #BB86FC;
+}
+
+i.fa-google{
+  margin-left: 20%;
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+i.fa-twitter{
+  margin-left: 10%;
+  background: conic-gradient( #4285f4 90deg 180deg);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+i.fa-facebook{
+  margin-left: 20%;
+  background: conic-gradient( #4267B2 90deg 180deg);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }

@@ -12,15 +12,35 @@ ion-icon{
     color: #03204e;
 }
 
+ion-content{
+    --ion-background-color: #141416;
+}
+
+ion-header{
+    --ion-background-color: #141416;
+}
+
 ion-card{
-    --ion-background-color: #c8cac8;
+    --ion-background-color: #ffffff;
     border-radius: 10px;
     .innerCard{
         --ion-background-color: #ffffff;
     }
 }
 
+ion-item.buscar{
+    margin-left: 45%;
+    color: #ffffff;
+}
+
 h2{
     text-align: center;
     color: #03204e;
+}
+
+i{
+    margin-top: 15px;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: #BB86FC;
 }

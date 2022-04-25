@@ -9,69 +9,55 @@
 <ion-content [fullscreen]="true">
 
   <!--NAV BAR-->
-  <ion-toolbar class="navBar">
-    <ion-buttons slot="secondary">
-      <ion-button (click)="go()" class="car">
-        <img src="assets\img\tooLogo.png" alt="">
-      </ion-button>
-      <ion-button>
-        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
-      </ion-button>
-      <ion-input [(ngModel)]="Buscar" placeholder="Buscar" type="text"></ion-input>
-      <ion-button>
-        <ion-icon slot="icon-only" name="search"></ion-icon>
-      </ion-button>
-      <ion-button>
-        <ion-icon name="cart-outline"></ion-icon>
-      </ion-button>
+  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button> Direccion </ion-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button> Done </ion-button>
+    </ion-buttons>
+
+    <ion-title>Buttons</ion-title>
   </ion-toolbar>
   <!--NAV BAR-->
 
-  <ion-header>
-    <h2>Promociones</h2>
-  </ion-header>
+  <ion-grid>
 
-  <!--SLIDE-->
-  <ion-slides style="height: 400px;">
-    <ion-slide>
-      <div class="slide">
-        <img src="assets\img\taladro.jpg" class="imgSlide" (click)="comprar()"/>
-        <h2>Taladro Dewalt</h2>
-        <p>
-          TALADRO PERCUTOR <b>1/2 PULG</b> DEWALT DW505
-        </p>
-      </div>
-    </ion-slide>
+    <ion-item class="buscar">
+      <ion-label position="floating"> <i class="fa-solid fa-magnifying-glass" style="color: #BB86FC;"></i> Buscar </ion-label>
+      <ion-input  [(ngModel)]="email" placeholder="Buscar" type="text"></ion-input>
+    </ion-item>
 
-    <ion-slide>
-      <div class="slide">
-        <img src="assets\img\tronzador.jpg" class="imgSlide"/>
-        <h2>Combo Dewalt</h2>
-        <p>
-          COMBO TRONZADOR <b>14 PULG</b> 2200W + PULIDORA <b>4-1/2 PULG</b>
-        </p>
-      </div>
-    </ion-slide>
+    <ion-row>
+      
+      <ion-col size="6">
+        <ion-card>
+          <i class="fa-solid fa-cart-arrow-down fa-4x"></i>
+          <ion-card-header>
+            <ion-card-subtitle><b>Productos Sugeridos</b></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
 
-    <ion-slide>
-      <div class="slide">
-        <img src="assets\img\cargadorDewalt.jpg" class="imgSlide" />
-        <h2>Combo Dewalt</h2>
-        <p>
-          CARGADOR BATERIA VOLTAJE<b> 12V MAX-20V MAX</b> 2200W + PULIDORA <b>4-1/2 PULG</b>
-        </p>
-      </div>
-    </ion-slide>
-  </ion-slides>
-  <!--SLIDE-->
-  
-  <!--CARD--> 
+      <ion-col size="6">
+        <ion-card>
+          <i class="fa-solid fa-cart-plus fa-4x"></i>
+          <ion-card-header>
+            <ion-card-subtitle><b>Pedido Nuevo</b></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <!--CARD-->
   <ion-card>
     <ion-card-content>
 
       <ion-card class="innerCard">
-        <img src="assets\img\martillo.jpg"  (click)="martillos()"/>
+        <img src="assets\img\martillo.jpg" (click)="martillos()" />
         <ion-card-header>
           <ion-card-subtitle>Herramienta manual</ion-card-subtitle>
           <ion-card-title>Martillo</ion-card-title>
@@ -79,15 +65,15 @@
       </ion-card>
 
       <ion-card class="innerCard">
-        <img src="assets\img\taladroList.jpg"  (click)="taladros()"/>
+        <img src="assets\img\taladroList.jpg" (click)="taladros()" />
         <ion-card-header>
           <ion-card-subtitle>Herramienta mecanicas</ion-card-subtitle>
           <ion-card-title>Taladro</ion-card-title>
         </ion-card-header>
-      </ion-card>x
+      </ion-card>
 
       <ion-card class="innerCard">
-        <img src="assets\img\Destornilladores.jpg"  (click)="destornilladores()"/>
+        <img src="assets\img\Destornilladores.jpg" (click)="destornilladores()" />
         <ion-card-header>
           <ion-card-subtitle>Herramienta de montaje</ion-card-subtitle>
           <ion-card-title>Destornilladores</ion-card-title>
@@ -95,7 +81,7 @@
       </ion-card>
 
       <ion-card class="innerCard">
-        <img src="assets\img\alicate.jpg"  (click)="alicates()"/>
+        <img src="assets\img\alicate.jpg" (click)="alicates()" />
         <ion-card-header>
           <ion-card-subtitle>Herramienta de sujecion</ion-card-subtitle>
           <ion-card-title>Alicates</ion-card-title>
@@ -103,7 +89,7 @@
       </ion-card>
 
       <ion-card class="innerCard">
-        <img src="assets\img\Metro.jpg"  (click)="metros()"/>
+        <img src="assets\img\Metro.jpg" (click)="metros()" />
         <ion-card-header>
           <ion-card-subtitle>Herramienta de trazo</ion-card-subtitle>
           <ion-card-title>Flexometro</ion-card-title>

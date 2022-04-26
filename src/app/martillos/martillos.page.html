@@ -6,29 +6,25 @@
 
 <ion-content>
 
-  <!--NAV BAR-->
-  <ion-toolbar class="navBar">
-    <ion-buttons slot="secondary">
-      <ion-button (click)="go()" class="car">
-        <img src="assets\img\tooLogo.png" alt="">
-      </ion-button>
-      <ion-button>
-        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
-      </ion-button>
-      <ion-input [(ngModel)]="Buscar" placeholder="Buscar" type="text"></ion-input>
-      <ion-button>
-        <ion-icon slot="icon-only" name="search"></ion-icon>
-      </ion-button>
-      <ion-button>
-        <ion-icon name="cart-outline"></ion-icon>
-      </ion-button>
+  <!--NAV BAR-->  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-user-tie"></i></ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">ProveedorPlus </ion-title>
   </ion-toolbar>
   <!--NAV BAR-->
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="light" (click)="factura()">
-      <ion-icon name="add" style="color: #c8cac8;"></ion-icon>
+    <ion-fab-button (click)="factura()">
+      <ion-icon name="add" style="color: #141416;"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
@@ -43,7 +39,7 @@
           <ion-card-title> Martillo una 13 onzas mango madera</ion-card-title>
           <ion-card-subtitle>39.000</ion-card-subtitle>
           <ion-radio-group [(ngModel)]="martillo">
-            <ion-radio color="light" value="karson, 39000"></ion-radio>
+            <ion-radio color="success" value="karson, 39000"></ion-radio>
           </ion-radio-group>
         </ion-card-header>
       </ion-card>

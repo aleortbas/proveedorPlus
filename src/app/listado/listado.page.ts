@@ -2,19 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-ferre',
-  templateUrl: './ferre.page.html',
-  styleUrls: ['./ferre.page.scss'],
+  selector: 'app-listado',
+  templateUrl: './listado.page.html',
+  styleUrls: ['./listado.page.scss'],
 })
-export class FerrePage implements OnInit {
+export class ListadoPage implements OnInit {
 
   constructor(private router: Router) { }
 
-  go(){
-    this.router.navigate(['home']); 
-  }
-  listado(){
-    this.router.navigate(['listado'])
+  atras(){
+    this.router.navigate(['ferre']);
   }
   martillos(){
     this.router.navigate(['martillos']);

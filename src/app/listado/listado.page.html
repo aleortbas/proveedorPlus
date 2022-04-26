@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!--NAV BAR-->  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-user-tie"></i></ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">ProveedorPlus </ion-title>
+  </ion-toolbar>
+  <!--NAV BAR-->
+  
+  <!--CARD--> 
+  <ion-card>
+    <ion-card-content>
+
+      <ion-card class="innerCard" (click)="martillos()">
+        <img src="assets\img\martillo.jpg"  (click)="martillos()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Herramienta manual</ion-card-subtitle>
+          <ion-card-title>Martillo</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="innerCard" (click)="taladros()">
+        <img src="assets\img\taladroList.jpg"  (click)="taladros()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Herramienta mecanicas</ion-card-subtitle>
+          <ion-card-title>Taladro</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="innerCard" (click)="destornilladores()">
+        <img src="assets\img\Destornilladores.jpg"  (click)="destornilladores()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Herramienta de montaje</ion-card-subtitle>
+          <ion-card-title>Destornilladores</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="innerCard" (click)="alicates()">
+        <img src="assets\img\alicate.jpg"  (click)="alicates()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Herramienta de sujecion</ion-card-subtitle>
+          <ion-card-title>Alicates</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="innerCard" (click)="metros()">
+        <img src="assets\img\Metro.jpg"  (click)="metros()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Herramienta de trazo</ion-card-subtitle>
+          <ion-card-title>Flexometro</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+    </ion-card-content>
+  </ion-card>
+  <!--CARD-->
+
+</ion-content>

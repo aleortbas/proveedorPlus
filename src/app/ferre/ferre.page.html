@@ -12,13 +12,20 @@
   
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button> Direccion </ion-button>
+      <ion-button> 
+        Direccion 
+        <br>
+        Cra 31#37-02
+      </ion-button>
     </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button> Done </ion-button>
+    <ion-buttons slot="start">
+      <ion-button>  </ion-button>
     </ion-buttons>
 
-    <ion-title>Buttons</ion-title>
+    <ion-buttons (click)="go()" class="car" slot="end">
+      <!--<img src="assets\img\tooLogo.png" alt="">-->
+      <i class="fa-solid fa-user-tie fa-2x" style="color: #BB86FC;"></i>
+    </ion-buttons> 
   </ion-toolbar>
   <!--NAV BAR-->
 
@@ -32,8 +39,8 @@
     <ion-row>
       
       <ion-col size="6">
-        <ion-card>
-          <i class="fa-solid fa-cart-arrow-down fa-4x"></i>
+        <ion-card class="Pedidos">
+          <i class="fa-solid fa-cart-arrow-down fa-5x"></i>
           <ion-card-header>
             <ion-card-subtitle><b>Productos Sugeridos</b></ion-card-subtitle>
           </ion-card-header>
@@ -41,8 +48,8 @@
       </ion-col>
 
       <ion-col size="6">
-        <ion-card>
-          <i class="fa-solid fa-cart-plus fa-4x"></i>
+        <ion-card class="Pedidos">
+          <i class="fa-solid fa-cart-plus fa-5x"></i>
           <ion-card-header>
             <ion-card-subtitle><b>Pedido Nuevo</b></ion-card-subtitle>
           </ion-card-header>
@@ -52,7 +59,46 @@
     </ion-row>
   </ion-grid>
 
+
+  <ion-grid class="gridTres">
+    <ion-label position="floating" class="SecondGrid"> Nuestro Catologo </ion-label>
+    <ion-row>
+      
+      <ion-col size="4">
+        <ion-card class="Menu" (click)="Categorias()">
+          <i class="fa-solid fa-basket-shopping fa-2x"></i>
+          <ion-card-header>
+            <ion-card-subtitle><b>Categorias</b></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-card class="Menu" (click)="Marcas()">
+          <i class="fa-solid fa-tag fa-2x" style="margin-left: 30%;"></i>
+          <ion-card-header>
+            <ion-card-subtitle><b>Marcas</b></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-card class="Menu" (click)="Soluciones()">
+          <i class="fa-solid fa-puzzle-piece fa-2x" style="margin-left: 30%;"></i>
+          <ion-card-header>
+            <ion-card-subtitle><b>Soluciones</b></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  
+
   <!--CARD-->
+
+  <!--
   <ion-card>
     <ion-card-content>
 
@@ -98,6 +144,29 @@
 
     </ion-card-content>
   </ion-card>
+  -->
   <!--CARD-->
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button style="margin: 10px;" (click)="go()">
+        <i class="fa-solid fa-house-chimney fa-2x" style="color: #BB86FC;"></i>
+      </ion-button>
+      <ion-button style="margin: 10px;">
+        <i class="fa-solid fa-percent fa-2x" style="color: #BB86FC;"></i>
+      </ion-button>
+      <ion-button style="margin: 10px;">
+        <i class="fa-solid fa-magnifying-glass fa-2x" style="color: #BB86FC;"></i>
+      </ion-button>
+      <ion-button style="margin: 10px;">
+        <i class="fa-solid fa-info fa-2x" style="color: #BB86FC;"></i>
+      </ion-button>
+      <ion-button style="margin: 10px;">
+        <i class="fa-solid fa-cart-shopping fa-2x" style="color: #BB86FC;"></i>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

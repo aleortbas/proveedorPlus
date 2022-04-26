@@ -28,9 +28,45 @@ ion-card{
     }
 }
 
+ion-card.Menu{
+    width: 85px;
+    height: 100px;
+}
+
+ion-card.Pedidos{
+    height: 180px; 
+    width: 120px;
+    ion-card-subtitle{
+        margin-top: 20px;
+    }
+}
+
+ion-grid.gridTres{
+    margin-top: 20px;
+}
+
 ion-item.buscar{
     margin-left: 45%;
     color: #ffffff;
+}
+
+ion-label.SecondGrid{
+    color: #ffffff;
+    margin-left: 7%;
+}
+
+ion-toolbar{
+    color: #ffffff;
+}
+
+ion-footer{
+    --ion-background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+img{
+    width: 40px;
+    height: 40px;
 }
 
 h2{
@@ -39,7 +75,7 @@ h2{
 }
 
 i{
-    margin-top: 15px;
+    margin-top: 5px;
     margin-left: 20%;
     margin-right: 20%;
     color: #BB86FC;

@@ -14,6 +14,10 @@ export class RegistroPage implements OnInit {
 
   constructor(public formBuilder: FormBuilder, private router: Router) { }
 
+  go(){
+    this.router.navigate(['ferre']);
+  }
+
   ngOnInit() {
     this.ionicForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],

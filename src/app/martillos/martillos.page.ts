@@ -19,9 +19,10 @@ export class MartillosPage implements OnInit {
     //)
   }
 
-  go(){
+  atras(){
     this.router.navigate(['ferre']);
   }
+  
   factura(){
 
     const nombre = this.martillo.split(",");

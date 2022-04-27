@@ -34,7 +34,7 @@ export class FacturaPage implements OnInit {
     //console.log("test. " + nombrePrecio[0]);
   }
   
-  go(){
+  atras(){
     this.router.navigate(['martillos']); 
   }
 

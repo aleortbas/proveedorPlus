@@ -6,45 +6,41 @@
 
 <ion-content>
 
-   <!--NAV BAR-->
-   <ion-toolbar class="navBar">
-    <ion-buttons slot="secondary">
-      <ion-button (click)="go()" class="car">
-        <img src="assets\img\tooLogo.png" alt="">
-      </ion-button>
-      <ion-button>
-        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
-      </ion-button>
-      <ion-input [(ngModel)]="Buscar" placeholder="Buscar" type="text"></ion-input>
-      <ion-button>
-        <ion-icon slot="icon-only" name="search"></ion-icon>
-      </ion-button>
-      <ion-button>
-        <ion-icon name="cart-outline"></ion-icon>
-      </ion-button>
+   <!--NAV BAR-->  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-user-tie"></i></ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">ProveedorPlus </ion-title>
   </ion-toolbar>
   <!--NAV BAR-->
 
   <ion-card>
   
     <ion-item>
-      <ion-label position="fixed"><b>Nombre:</b></ion-label>
+      <ion-label position="fixed" class="formatoLabel"><b>Nombre:</b></ion-label>
       <ion-input disabled>{{nombre}}</ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="fixed"><b>Precio:</b></ion-label>
+      <ion-label position="fixed" class="formatoLabel"><b>Precio:</b></ion-label>
       <ion-input disabled>{{precio}}</ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="fixed"><b>Direccion:</b></ion-label>
+      <ion-label position="fixed" class="formatoLabel"><b>Direccion:</b></ion-label>
       <ion-input [(ngModel)]="Direccion"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="fixed"><b>Telefono:</b></ion-label>
+      <ion-label position="fixed" class="formatoLabel"><b>Telefono:</b></ion-label>
       <ion-input [(ngModel)]="Telefono"></ion-input>
     </ion-item>
 
@@ -58,11 +54,11 @@
     </ion-list>
 
     <ion-item>
-      <ion-label>Entrega expres</ion-label>
+      <ion-label class="formatoLabel">Entrega expres</ion-label>
       <ion-toggle color="tertiary" value="foo" checked="true"  [(ngModel)]="Toggle"></ion-toggle>
     </ion-item>
 
-    <ion-button class="pagar" color="tertiary" (click)="presentFactura()">
+    <ion-button class="pagar" color="success" (click)="presentFactura()">
       Pagar
       <ion-icon name="checkbox-outline"></ion-icon>
     </ion-button>

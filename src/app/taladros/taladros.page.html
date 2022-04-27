@@ -1,9 +1,74 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>taladros</ion-title>
+    <ion-title>Taladros</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <!--NAV BAR-->  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-user-tie"></i></ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">ProveedorPlus </ion-title>
+  </ion-toolbar>
+  <!--NAV BAR-->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button  (click)="factura()">
+      <ion-icon name="add" style="color: #141416;"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!--CARD--> 
+  <ion-card class="master">
+    <ion-card-content>
+
+      <ion-card class="innerCard">
+        <img src="assets\img\taladroPercutor.jpg"  (click)="martillos()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Bosch</ion-card-subtitle>
+          <ion-card-title> Taladro Percutor 1/2-pulg 18V I-L 1.5Ah</ion-card-title>
+          <ion-card-subtitle>789.900</ion-card-subtitle>
+          <ion-radio-group [(ngModel)]="taladro">
+            <ion-radio color="success" value="Bosch Taladro Percutor, 789.900"></ion-radio>
+          </ion-radio-group>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="innerCard">
+        <img src="assets\img\martilloRedline.jpg"  (click)="taladros()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Redline</ion-card-subtitle>
+          <ion-card-title>Martillo carpintero 20 onzas mango fibra</ion-card-title>
+          <ion-radio-group [(ngModel)]="martillo">
+            <ion-radio color="light" value="Redline"></ion-radio>
+          </ion-radio-group>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="innerCard">
+        <img src="assets\img\martilloUberman.jpg"  (click)="destornilladores()"/>
+        <ion-card-header>
+          <ion-card-subtitle>Uberman</ion-card-subtitle>
+          <ion-card-title>Combo con mango FV</ion-card-title>
+          <ion-radio-group [(ngModel)]="martillo">
+            <ion-radio color="light" value="Uberman"></ion-radio>
+          </ion-radio-group>
+        </ion-card-header>
+      </ion-card>
+
+    </ion-card-content>
+  </ion-card>
+  <!--CARD-->
+
 
 </ion-content>

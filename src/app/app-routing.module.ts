@@ -51,6 +51,14 @@ const routes: Routes = [
     path: 'listado',
     loadChildren: () => import('./listado/listado.module').then( m => m.ListadoPageModule)
   },
+  {
+    path: 'add-edit-item',
+    loadChildren: () => import('./add-edit-item/add-edit-item.module').then( m => m.AddEditItemPageModule)
+  },
+  {
+    path: 'pruebas2',
+    loadChildren: () => import('./pruebas2/pruebas2.module').then( m => m.Pruebas2PageModule)
+  },
 ];
 
 @NgModule({

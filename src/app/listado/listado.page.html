@@ -28,43 +28,11 @@
   <ion-card>
     <ion-card-content>
 
-      <ion-card class="innerCard" (click)="martillos()">
-        <img src="assets\img\martillo.jpg"  (click)="martillos()"/>
+      <ion-card *ngFor="let producto of productos" class="innerCard" (click)="martillos()">
+        <img [src]=producto.imagenUrl (click)="martillos()"/>
         <ion-card-header>
-          <ion-card-subtitle>Herramienta manual</ion-card-subtitle>
-          <ion-card-title>Martillo</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card class="innerCard" (click)="taladros()">
-        <img src="assets\img\taladroList.jpg"  (click)="taladros()"/>
-        <ion-card-header>
-          <ion-card-subtitle>Herramienta mecanicas</ion-card-subtitle>
-          <ion-card-title>Taladro</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card class="innerCard" (click)="destornilladores()">
-        <img src="assets\img\Destornilladores.jpg"  (click)="destornilladores()"/>
-        <ion-card-header>
-          <ion-card-subtitle>Herramienta de montaje</ion-card-subtitle>
-          <ion-card-title>Destornilladores</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card class="innerCard" (click)="alicates()">
-        <img src="assets\img\alicate.jpg"  (click)="alicates()"/>
-        <ion-card-header>
-          <ion-card-subtitle>Herramienta de sujecion</ion-card-subtitle>
-          <ion-card-title>Alicates</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card class="innerCard" (click)="metros()">
-        <img src="assets\img\Metro.jpg"  (click)="metros()"/>
-        <ion-card-header>
-          <ion-card-subtitle>Herramienta de trazo</ion-card-subtitle>
-          <ion-card-title>Flexometro</ion-card-title>
+          <ion-card-subtitle> {{producto.tipo}} </ion-card-subtitle>
+          <ion-card-title> {{producto.nombre}} </ion-card-title>
         </ion-card-header>
       </ion-card>
 

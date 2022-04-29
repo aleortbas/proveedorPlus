@@ -8,6 +8,14 @@ import { Router } from '@angular/router';
 })
 export class ListadoPage implements OnInit {
 
+  productos = [
+    { tipo:'Herramienta Manual', nombre:'Martillos', imagenUrl: "../assets/img/martillo.jpg"},
+    { tipo:'Herramienta mecanicas', nombre:'Taladros', imagenUrl:"../assets/img/taladroList.jpg"},
+    { tipo:'Herramienta De Montaje', nombre:'Destornilladores', imagenUrl:"../assets/img/Destornilladores.jpg"},
+    { tipo:'Herramienta De Sujecion', nombre:'Alicates', imagenUrl:"../assets/img/alicate.jpg"},
+    { tipo:'Herramienta De Trazo', nombre:'Flexometros', imagenUrl:"../assets/img/Metro.jpg"},
+  ];
+
   constructor(private router: Router) { }
 
   atras(){

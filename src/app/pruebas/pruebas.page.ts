@@ -15,7 +15,7 @@ export class PruebasPage{
   usuarios: any;
 
   items = [
-    { titulo:'Ingeniero', descripcion:'Mecatronica'},
+    { titulo:'Ingeniero', descripcion:'Mecatronica', imagenUrl: "../assets/img/login2.png"},
     { titulo:'Medico', descripcion:'Cirujano'},
     { titulo:'Abogado', descripcion:'Civil'},
     { titulo:'Quimico', descripcion:'Farmaceuta'}

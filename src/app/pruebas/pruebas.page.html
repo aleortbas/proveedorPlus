@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>pruebas</ion-title>
+    <img src="..\assets\img\login2.png" alt="">
   </ion-toolbar>
 </ion-header>
 
@@ -27,7 +28,7 @@
     <ion-card *ngFor="let usuario of usuarios">
       <ion-card-content>
         <ion-card class="innerCard">
-          <img  [src]="usuario.picture.medium" (click)="metros()"/>
+          <img  [src]="usuario.picture.medium"/>
           <ion-card-header>
             <ion-card-subtitle>{{usuario.name.first}}</ion-card-subtitle>
             <ion-card-title>{{usuario.location.city}}</ion-card-title>
@@ -37,24 +38,22 @@
     </ion-card>
 
 
-
-
-
     <ion-card *ngFor="let item of items">
       <ion-card-header>
         <ion-card-subtitle> {{item.titulo}} </ion-card-subtitle>
         <ion-card-title> {{item.descripcion}} </ion-card-title>
+          <img [src]=item.imagenUrl />
       </ion-card-header>
     </ion-card>
 
-    <ion-div *ngIf="mostrar; else elseBlock">
+    <div *ngIf="mostrar; else elseBlock">
       <ion-card *ngFor="let item of items">
         <ion-card-header>
           <ion-card-subtitle> {{item.titulo}} </ion-card-subtitle>
-          <ion-car-title> {{item.descripcion}} </ion-car-title>
+          <ion-card-title> {{item.descripcion}} </ion-card-title>
         </ion-card-header>
       </ion-card>
-    </ion-div>
+    </div>
 
     <ng-template #elseBlock>
       <ion-card>

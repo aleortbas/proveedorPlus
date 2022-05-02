@@ -21,20 +21,29 @@ export class ListadoPage implements OnInit {
   atras(){
     this.router.navigate(['ferre']);
   }
-  martillos(){
-    this.router.navigate(['martillos']);
-  }
-  taladros(){
-    this.router.navigate(['taladros']);
-  }
-  destornilladores(){
-    this.router.navigate(['destornilladores']);
-  }
-  alicates(){
-    this.router.navigate(['alicates']);
-  }
-  metros(){
-    this.router.navigate(['metros']);
+  martillos(index){
+    console.log(index);
+
+    switch (index) {
+      case 0:
+        this.router.navigate(['martillos']);
+        break;
+      case 1:
+        this.router.navigate(['taladros']);
+        break;
+      case 2:
+        this.router.navigate(['destornilladores']);
+        break;
+      case 3:
+        this.router.navigate(['alicates']);
+        break;
+      case 4:
+        this.router.navigate(['metros']);
+        break;
+
+    }
+
+    //this.router.navigate(['martillos']);
   }
 
   ngOnInit() {

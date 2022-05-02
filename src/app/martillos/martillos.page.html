@@ -22,13 +22,32 @@
   </ion-toolbar>
   <!--NAV BAR-->
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+   <!--CARD--> 
+   <ion-card>
+    <ion-card-content>
+
+      <ion-card *ngFor="let martillo of martillos; let i = index" class="innerCard" (click)="factura(i)">
+        <img [src]=martillo.imagenUrl (click)="factura(i)"/>
+        <ion-card-header>
+          <ion-card-subtitle key=""> {{martillo.marca}} </ion-card-subtitle>
+          <ion-card-title> {{martillo.descripcion}} </ion-card-title>
+          <ion-radio-group>
+            <ion-radio color="success" value="Uberman"></ion-radio>
+          </ion-radio-group>
+        </ion-card-header>
+      </ion-card>
+
+    </ion-card-content>
+  </ion-card>
+  <!--CARD-->
+
+  <!--<ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="factura()">
       <ion-icon name="add" style="color: #141416;"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-  <!--CARD--> 
+  CARD
   <ion-card class="master">
     <ion-card-content>
 
@@ -68,7 +87,7 @@
 
     </ion-card-content>
   </ion-card>
-  <!--CARD-->
+  CARD-->
 
 
 </ion-content>

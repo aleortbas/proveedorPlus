@@ -17,7 +17,6 @@ export class FacturaPage implements OnInit {
   pago:string;
   Toggle:boolean;
   mensaje:string;
-  sapa = 1;
   
   constructor(private router: Router, private activatedRouter:ActivatedRoute, 
     public alertController:AlertController, public toastController:ToastController) {
@@ -26,13 +25,19 @@ export class FacturaPage implements OnInit {
        // console.log(data)
       //}
     //)
+ 
+    let test = this.data = this.activatedRouter.snapshot.params['marca'];
+    const pruebaSplit = test.split(/[\:,]+/);
+    console.log("SPLIT TEST " + pruebaSplit[7]);
+    console.log("Que es esto"+ test);
 
+    /*
     this.data = this.activatedRouter.snapshot.paramMap.get('nombre');
     const nombrePrecio = this.data.split('""');
     this.nombre = nombrePrecio[0].replace('"',' ');
     this.precio = nombrePrecio[1].replace('"',' ');
 
-    //console.log("test. " + nombrePrecio[0]);
+    //console.log("test. " + nombrePrecio[0]);*/
   }
   
   atras(){

@@ -29,7 +29,7 @@
     <ion-card-content>
 
       <ion-card *ngFor="let producto of productos; let i = index" class="innerCard" (click)="martillos(i)">
-        <img [src]=producto.imagenUrl (click)="martillos()"/>
+        <img [src]=producto.imagenUrl (click)="martillos(i)"/>
         <ion-card-header>
           <ion-card-subtitle key=""> {{producto.tipo}} </ion-card-subtitle>
           <ion-card-title> {{producto.nombre}} </ion-card-title>

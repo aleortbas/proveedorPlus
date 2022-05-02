@@ -24,6 +24,12 @@ export class ListadoPage implements OnInit {
   martillos(index){
     console.log(index);
 
+    /* COMO ACCEDER AL ARRAY DEPENDIENDO DEL CLICK
+    if(index == 0){
+      console.log(this.productos[0].nombre)
+    }
+    */
+
     switch (index) {
       case 0:
         this.router.navigate(['martillos']);

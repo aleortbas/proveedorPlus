@@ -28,47 +28,23 @@
     </ion-fab-button>
   </ion-fab>
 
-  <!--CARD--> 
-  <ion-card class="master">
-    <ion-card-content>
+ <!--CARD--> 
+ <ion-card>
+  <ion-card-content>
 
-      <ion-card class="innerCard">
-        <img src="assets\img\taladroPercutor.jpg"  (click)="martillos()"/>
-        <ion-card-header>
-          <ion-card-subtitle>Bosch</ion-card-subtitle>
-          <ion-card-title> Taladro Percutor 1/2-pulg 18V I-L 1.5Ah</ion-card-title>
-          <ion-card-subtitle>789.900</ion-card-subtitle>
-          <ion-radio-group [(ngModel)]="taladro">
-            <ion-radio color="success" value="Bosch Taladro Percutor, 789.900"></ion-radio>
-          </ion-radio-group>
-        </ion-card-header>
-      </ion-card>
+    <ion-card *ngFor="let taladro of taladros; let i = index" class="innerCard" (click)="factura(i)">
+      <img [src]=taladro.imagenUrl (click)="factura(i)"/>
+      <ion-card-header>
+        <ion-card-subtitle key=""> {{taladro.marca}} </ion-card-subtitle>
+        <ion-card-title> {{taladro.descripcion}} </ion-card-title>
+        <ion-radio-group>
+          <ion-radio color="success" value="Uberman"></ion-radio>
+        </ion-radio-group>
+      </ion-card-header>
+    </ion-card>
 
-      <ion-card class="innerCard">
-        <img src="assets\img\martilloRedline.jpg"  (click)="taladros()"/>
-        <ion-card-header>
-          <ion-card-subtitle>Redline</ion-card-subtitle>
-          <ion-card-title>Martillo carpintero 20 onzas mango fibra</ion-card-title>
-          <ion-radio-group [(ngModel)]="martillo">
-            <ion-radio color="light" value="Redline"></ion-radio>
-          </ion-radio-group>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card class="innerCard">
-        <img src="assets\img\martilloUberman.jpg"  (click)="destornilladores()"/>
-        <ion-card-header>
-          <ion-card-subtitle>Uberman</ion-card-subtitle>
-          <ion-card-title>Combo con mango FV</ion-card-title>
-          <ion-radio-group [(ngModel)]="martillo">
-            <ion-radio color="light" value="Uberman"></ion-radio>
-          </ion-radio-group>
-        </ion-card-header>
-      </ion-card>
-
-    </ion-card-content>
-  </ion-card>
-  <!--CARD-->
-
+  </ion-card-content>
+</ion-card>
+<!--CARD-->
 
 </ion-content>

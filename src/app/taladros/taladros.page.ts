@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-taladros',
@@ -8,26 +8,57 @@ import { Router } from '@angular/router';
 })
 export class TaladrosPage implements OnInit {
 
-  constructor(private router: Router) { }
+  taladros = [
+    {
+      marca: 'Bosch Taladro Percutor',
+      descripcion: 'Taladro Percutor 1 2-pulg 18V I-L 1.5Ah',
+      precios: 78900,
+      imagenUrl: '../assets/img/taladroPercutor.jpg',
+    },
+    {
+      marca: 'Black+Decker',
+      descripcion:
+        'Taladro Inalámbrico Rotación 3 8-pulg 12V  Accesorios  Estuche Plástico Black+Decker',
+      precios: 199000,
+      imagenUrl: '../assets/img/blackDeckerTaladro.jpg',
+    },
+    {
+      marca: 'Dewalt',
+      descripcion:
+        'Kit Taladro Percutor 1 2-pulg 20V Max Brushless Con 1 Batería 2Ah',
+      precios: 559000,
+      imagenUrl: '../assets/img/DewaltTaladro.jpg',
+    },
+  ];
 
-  taladro:string;
-  precio:string;
+  constructor(
+    private router: Router,
+    private activatedRouter: ActivatedRoute
+  ) {}
 
-  factura(){
+  atras() {
+    this.router.navigate(['ferre']);
+  }
 
-    const nombre = this.taladro.split(",");
+  factura(index) {
+    let valor; //= JSON.stringify(this.taladros[2].precios);
+    //console.log("TEST FORMA DE ENVIAR: " + valor);
 
-    let producto = {
-      'nombre': nombre[0],
-      'precio': nombre[1]
+    switch (index) {
+      case 0:
+        valor = JSON.stringify(this.taladros[0]);
+        this.router.navigate(['factura/' + valor]);
+        break;
+      case 1:
+        valor = JSON.stringify(this.taladros[1]);
+        this.router.navigate(['factura/' + valor]);
+        break;
+      case 2:
+        valor = JSON.stringify(this.taladros[2]);
+        this.router.navigate(['factura/' + valor]);
+        console.log("PRECIO " + JSON.stringify(this.taladros[2].precios));
+        break;
     }
-
-    this.router.navigate(['factura/' + JSON.stringify(producto.nombre) + JSON.stringify(producto.precio)]);
-    //console.log("PRUEBA: " + this.martillo + "PREUBA: " + this.precio);
   }
-
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

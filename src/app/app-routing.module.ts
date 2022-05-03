@@ -59,6 +59,42 @@ const routes: Routes = [
     path: 'pruebas2',
     loadChildren: () => import('./pruebas2/pruebas2.module').then( m => m.Pruebas2PageModule)
   },
+  {
+    path: 'marcas',
+    loadChildren: () => import('./marcas/marcas.module').then( m => m.MarcasPageModule)
+  },
+  {
+    path: 'soluciones',
+    loadChildren: () => import('./soluciones/soluciones.module').then( m => m.SolucionesPageModule)
+  },
+  {
+    path: 'promociones',
+    loadChildren: () => import('./promociones/promociones.module').then( m => m.PromocionesPageModule)
+  },
+  {
+    path: 'black-decker',
+    loadChildren: () => import('./black-decker/black-decker.module').then( m => m.BlackDeckerPageModule)
+  },
+  {
+    path: 'bosch',
+    loadChildren: () => import('./bosch/bosch.module').then( m => m.BoschPageModule)
+  },
+  {
+    path: 'dewalt',
+    loadChildren: () => import('./dewalt/dewalt.module').then( m => m.DewaltPageModule)
+  },
+  {
+    path: 'uberman',
+    loadChildren: () => import('./uberman/uberman.module').then( m => m.UbermanPageModule)
+  },
+  {
+    path: 'stanley',
+    loadChildren: () => import('./stanley/stanley.module').then( m => m.StanleyPageModule)
+  },
+  {
+    path: 'soporte',
+    loadChildren: () => import('./soporte/soporte.module').then( m => m.SoportePageModule)
+  },
 ];
 
 @NgModule({

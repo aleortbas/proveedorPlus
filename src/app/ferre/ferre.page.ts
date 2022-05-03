@@ -31,6 +31,9 @@ export class FerrePage implements OnInit {
   metros(){
     this.router.navigate(['metros']);
   }
+  Marcas(){
+    this.router.navigate(['marcas']);
+  }
 
   ngOnInit() {
   }

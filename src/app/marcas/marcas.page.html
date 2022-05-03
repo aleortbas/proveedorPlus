@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Marcas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+     <!--NAV BAR-->  
+  <ion-toolbar class="innerToolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-user-tie"></i></ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">ProveedorPlus </ion-title>
+  </ion-toolbar>
+  <!--NAV BAR-->
+
+  <ion-label position="floating" class="SecondGrid">
+    <b>Nuestro Catologo De Marcas</b></ion-label>
+
+  <ion-card
+    *ngFor="let marca of marcas; let i = index"
+    class="Menu"
+    (click)="listado()"
+  >
+    <div class="container">
+      <img [src]="marca.imagenUrl" (click)="ir(i)" alt="Snow" style="width: fit-content; height: fit-content;" />
+      <div class="text-block">
+        <h4>{{marca.nombre}}</h4>
+      </div>
+    </div>
+  </ion-card>
+</ion-content>

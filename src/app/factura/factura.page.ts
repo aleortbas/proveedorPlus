@@ -53,6 +53,8 @@ export class FacturaPage implements OnInit {
       this.router.navigate(['destornilladores']);
     } else if (this.tipo.match('alicate')) {
       this.router.navigate(['alicates']);
+    } else if (this.tipo.match('metro')) {
+      this.router.navigate(['metros']);
     }
   }
 

@@ -1,9 +1,50 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>metros</ion-title>
+    <ion-title>Metros</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <!--NAV BAR-->  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-user-tie"></i></ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">ProveedorPlus </ion-title>
+  </ion-toolbar>
+  <!--NAV BAR-->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button  (click)="factura()">
+      <ion-icon name="add" style="color: #141416;"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+ <!--CARD--> 
+ <ion-card>
+  <ion-card-content>
+
+    <ion-card *ngFor="let metro of metros; let i = index" class="innerCard" (click)="factura(i)">
+      <img [src]=metro.imagenUrl (click)="factura(i)"/>
+      <ion-card-header>
+        <ion-card-subtitle key=""> {{metro.marca}} </ion-card-subtitle>
+        <ion-card-title> {{metro.descripcion}} </ion-card-title>
+        <ion-radio-group>
+          <ion-radio color="success" value="Uberman"></ion-radio>
+        </ion-radio-group>
+      </ion-card-header>
+    </ion-card>
+
+  </ion-card-content>
+</ion-card>
+<!--CARD-->
 
 </ion-content>

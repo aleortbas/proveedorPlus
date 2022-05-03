@@ -49,6 +49,8 @@ export class FacturaPage implements OnInit {
       this.router.navigate(['taladros']);
     } else if (this.tipo.match('martillo')) {
       this.router.navigate(['martillos']);
+    } else if (this.tipo.match('destornillador')) {
+      this.router.navigate(['destornilladores']);
     }
   }
 

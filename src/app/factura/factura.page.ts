@@ -28,16 +28,14 @@ export class FacturaPage implements OnInit {
  
     let test = this.data = this.activatedRouter.snapshot.params['marca'];
     const pruebaSplit = test.split(/[\:,]+/);
-    console.log("SPLIT TEST " + pruebaSplit[7]);
-    console.log("Que es esto"+ test);
 
-    /*
-    this.data = this.activatedRouter.snapshot.paramMap.get('nombre');
-    const nombrePrecio = this.data.split('""');
-    this.nombre = nombrePrecio[0].replace('"',' ');
-    this.precio = nombrePrecio[1].replace('"',' ');
+    this.nombre = pruebaSplit[1].replace('"',' ').replace('"',' ');
+    this.precio = pruebaSplit[5];
 
-    //console.log("test. " + nombrePrecio[0]);*/
+    /*console.log("NOMBRE O MARCA " + this.nombre);
+    console.log("PRECIO " + this.precio);
+    console.log("Que es esto"+ test);*/
+
   }
   
   atras(){

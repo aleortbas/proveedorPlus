@@ -15,18 +15,21 @@ export class MartillosPage implements OnInit {
       marca: 'Karson',
       descripcion: 'Martillo una 13 onzas mango madera',
       precios: 39000,
+      tipo: 'martillo',
       imagenUrl: '../assets/img/marillokarson.jpg',
     },
     {
       marca: 'Redline',
       descripcion: 'Martillo carpintero 20 onzas mango fibra',
       precios: 45000,
+      tipo: 'martillo',
       imagenUrl: '../assets/img/martilloRedline.jpg',
     },
     {
       marca: 'Uberman',
       descripcion: 'Combo con mango FV',
       precios: 59900,
+      tipo: 'martillo',
       imagenUrl: '../assets/img/martilloUberman.jpg',
     },
   ];

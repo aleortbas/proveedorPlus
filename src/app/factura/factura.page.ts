@@ -17,6 +17,7 @@ export class FacturaPage implements OnInit {
   pago:string;
   Toggle:boolean;
   mensaje:string;
+  tipo:string;
   
   constructor(private router: Router, private activatedRouter:ActivatedRoute, 
     public alertController:AlertController, public toastController:ToastController) {
@@ -31,7 +32,10 @@ export class FacturaPage implements OnInit {
 
     this.nombre = pruebaSplit[1].replace('"',' ').replace('"',' ');
     this.precio = pruebaSplit[5];
+    this.tipo = pruebaSplit[7].replace('"',' ').replace('"',' ');
 
+    console.log("CAPTURA TIPO HERRAMIENTA" + this.tipo);
+    
     /*console.log("NOMBRE O MARCA " + this.nombre);
     console.log("PRECIO " + this.precio);
     console.log("Que es esto"+ test);*/

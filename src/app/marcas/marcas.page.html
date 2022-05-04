@@ -4,13 +4,13 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-
-     <!--NAV BAR-->  
+  <!--NAV BAR-->
   <ion-toolbar class="innerToolbar">
     <ion-buttons slot="start">
-      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
+      <ion-button (click)="atras()"
+        ><i class="fa-solid fa-house-chimney"></i
+      ></ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
@@ -24,7 +24,8 @@
   <!--NAV BAR-->
 
   <ion-label position="floating" class="SecondGrid">
-    <b>Nuestro Catologo De Marcas</b></ion-label>
+    <b>Nuestro Catologo De Marcas</b></ion-label
+  >
 
   <ion-card
     *ngFor="let marca of marcas; let i = index"
@@ -32,7 +33,12 @@
     (click)="listado()"
   >
     <div class="container">
-      <img [src]="marca.imagenUrl" (click)="ir(i)" alt="Snow" style="width: fit-content; height: fit-content;" />
+      <img
+        [src]="marca.imagenUrl"
+        (click)="ir(i)"
+        alt="Snow"
+        style="width: fit-content; height: fit-content"
+      />
       <div class="text-block">
         <h4>{{marca.nombre}}</h4>
       </div>

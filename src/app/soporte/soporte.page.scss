@@ -1,0 +1,191 @@
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  ion-header.masterHeader{  
+    ion-title{
+      color: #ffffff;
+    }
+  }
+  
+  ion-button{
+    --background: #ffffff00;
+  }
+
+  ion-item{
+      color: #03204e;
+  }
+
+  ion-content{
+    --ion-background-color: #ffffff;
+  }
+
+  ion-header{
+    --ion-background-color: #ffffff;
+  }
+
+  ion-datetime {
+    height: auto;
+    width: auto;
+    max-width: 350px;
+    border-radius: 20px;
+  }
+  
+  i{
+    color: #8c8c8c;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    border-size: border-box;
+  }
+  
+  html, body {
+    height: 100vh;
+    background: #666666;
+    font-family: 'Balsamiq Sans', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 290px;
+    //border: 6px solid rgba(255, 255, 255, 0.3);
+    border: solid #000000;
+    border-radius: 50px;
+    position: relative;
+  }
+  
+  .card h2 {
+    color: rgb(91, 91, 91);
+    font-size: 60px;
+    text-transform: uppercase;
+  }
+  
+  .card .row {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid: auto / auto auto;
+    grid-template-columns: repeat(auto-fit,minmax(40%, 1fr));
+    grid-gap: 30px;
+  }
+  
+  .card .row .col {
+    position: relative;
+    width: 100%;
+    margin: 20px 20px 40px 0;
+    transition: 0.5s;
+  }
+  
+  .card .row .form-group {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: #ffffff;
+  }
+  
+  .card .row .form-group ion-input,
+  .card .row .form-group textarea {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    font-size: 24px;
+    padding: 10px 0 10px 20px;
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 0 rgba(52, 51, 51, 0.3);
+    color: #8c8c8c;
+    border-radius: 50px;
+  }
+  
+  .card .row .form-group ion-label {
+    line-height: 40px;
+    color: #8c8c8c;
+    font-size: 24px;
+    margin: 0 0 0 30px;
+    display: block;
+    pointer-events: none;
+  }
+  
+  .row .col:nth-child(6) {
+    margin-top: 64px;
+  }
+  
+  .card .row .form-group ion-input:hover,
+  .card .row .form-group textarea:hover {
+    border: 5px solid #000000;
+    transition: all 0.5s;
+  }
+  
+  .card .row ion-button[type="submit"] {
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 10px 10px 0 rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    height: 100%;
+    width: 50%;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 40px;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 45px;
+    transition: all 0.4s;
+  }
+  
+  .card .row ion-button[type="submit"]:hover {
+    border: 5px solid rgba(255, 255, 255, 1);
+    color: #ffffff;
+    transition: all 0.4s;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .card .row {
+      grid-template-columns: repeat(auto-fit,minmax(70%, 1fr));
+    }
+    
+    .card {
+      padding: 20px;
+    }
+    
+    .card h2 {
+      font-size: 34px;
+    }
+    
+    .card .row ion-button[type="submit"] {
+      width: 100%;
+    }
+  }

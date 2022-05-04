@@ -34,6 +34,9 @@ export class FerrePage implements OnInit {
   Marcas(){
     this.router.navigate(['marcas']);
   }
+  Soluciones(){
+    this.router.navigate(['soporte'])
+  }
 
   ngOnInit() {
   }

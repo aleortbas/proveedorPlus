@@ -1,9 +1,73 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>soporte</ion-title>
+    <ion-title>Soporte</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <!--NAV BAR-->
+  <ion-toolbar class="innerToolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-user-tie"></i></ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">ProveedorPlus </ion-title>
+  </ion-toolbar>
+  <!--NAV BAR-->
+
+  <ion-textarea placeholder="placeholder" style="color: #666666;"></ion-textarea>
+
+  <div class="card" style="  position: absolute;
+  top: 100px; height: max-content;">
+    <h2>Crear tu cuenta</h2>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <ion-label>Nombre</ion-label>
+          <ion-input type="text"></ion-input>
+        </div>
+      </div>
+  
+      <div class="col">
+        <div class="form-group">
+          <ion-label>Email</ion-label>
+          <ion-input type="email"></ion-input>
+        </div>
+      </div>
+  
+      <div class="col">
+        <div class="form-group">
+          <ion-label>Direccion</ion-label>
+          <ion-input type="text"></ion-input>
+        </div>
+      </div>
+  
+      <div class="col">
+        <div class="form-group">
+          <ion-label>Celular</ion-label>
+          <ion-input type="text"></ion-input>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <ion-label>Celular</ion-label>
+          <ion-input type="text"></ion-input>
+        </div>
+      </div>
+
+      <div class="col">
+        <ion-button type="submit" (click)="go()">Enviar</ion-button>
+      </div>
+    </div>
+  </div>
+
 
 </ion-content>

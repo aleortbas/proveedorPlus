@@ -22,49 +22,47 @@
   </ion-toolbar>
   <!--NAV BAR-->
 
-  <ion-textarea placeholder="placeholder" style="color: #666666;"></ion-textarea>
-
   <div class="card" style="  position: absolute;
   top: 100px; height: max-content;">
-    <h2>Crear tu cuenta</h2>
+    <h2>Soporte</h2>
     <div class="row">
       <div class="col">
         <div class="form-group">
           <ion-label>Nombre</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input  [(ngModel)]="nombre" type="text"></ion-input>
         </div>
       </div>
   
       <div class="col">
         <div class="form-group">
           <ion-label>Email</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-input  [(ngModel)]="email" type="email"></ion-input>
         </div>
       </div>
   
       <div class="col">
         <div class="form-group">
           <ion-label>Direccion</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input  [(ngModel)]="Direccion" type="text"></ion-input>
         </div>
       </div>
   
       <div class="col">
         <div class="form-group">
           <ion-label>Celular</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input  [(ngModel)]="Celular" type="text"></ion-input>
         </div>
       </div>
 
       <div class="col">
         <div class="form-group">
-          <ion-label>Celular</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label>Mensaje</ion-label>
+          <textarea  [(ngModel)]="Mensaje" name="responsive-text" rows="1"></textarea>
         </div>
       </div>
 
-      <div class="col">
-        <ion-button type="submit" (click)="go()">Enviar</ion-button>
+      <div class="col" style="margin-top: 50px;">
+        <ion-button type="submit" (click)="presentNotificacion()">Enviar</ion-button>
       </div>
     </div>
   </div>

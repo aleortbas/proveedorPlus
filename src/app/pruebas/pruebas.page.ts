@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 //import { resolve } from 'dns';
 import { HttpService } from '../services/http.service';
+import { CrudServiceService } from '../crud-service.service';
 
 
 @Component({
@@ -13,6 +14,10 @@ export class PruebasPage{
   url: string;
   data: string;
   usuarios: any;
+  user: any
+  userName: string;
+  userAge: number;
+  userAddress: string;
 
   items = [
     { titulo:'Ingeniero', descripcion:'Mecatronica', imagenUrl: "../assets/img/login2.png"},
@@ -25,7 +30,7 @@ export class PruebasPage{
   mostrar = true;
 
 
-  constructor(private http:HttpService, public NavCtrl:NavController) { }
+  constructor(private http:HttpService, public NavCtrl:NavController, private crudservice: CrudServiceService) { }
 
   cargar(){
     this.http.loadUsers().then(
@@ -54,6 +59,33 @@ export class PruebasPage{
   }*/
 
   ngOnInit() {
+    this.crudservice.read_User().subscribe(data => {
+      this.user = data.map(e => {
+        return{
+          id: e.payload.doc.id,
+          isEdit: false,
+          Name: e.payload.doc.data()['name'],
+          Age: e.payload.doc.data()['age'],
+          Address: e.payload.doc.data()['address'],
+        }
+      })
+    })
   }
 
+  createRecord(){
+    let record = {};
+    record['name'] = this.userName;
+    record['age'] = this.userAge;
+    record['address'] = this.userAddress;
+
+    this.crudservice.create_NewUser(record).then(res => {
+      this.userName = "";
+      this.userAge = undefined;
+      this.userAddress = "";
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error)
+    });
+  }
 }

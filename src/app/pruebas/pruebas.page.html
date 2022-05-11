@@ -62,5 +62,24 @@
         </ion-header>
       </ion-card>
     </ng-template>
+
+    <ion-card>
+      <ion-card-title>Create user</ion-card-title>
+      <ion-card-content>
+        <ion-input type="text" [(ngModel)]="userName" placeholder="Name"></ion-input>
+        <ion-input type="text" [(ngModel)]="userAge" placeholder="Age"></ion-input>
+        <ion-input type="text" [(ngModel)]="userAddress" placeholder="Address"></ion-input>
+      
+        <ion-button (click)="createRecord()" expand="full" color="success">Guardar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card *ngFor="let item of user">
+      <ion-card-header>
+        <ion-card-title>Get user</ion-card-title>
+        <ion-card-subtitle>{{item.Name}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>Age: {{item.Age}} <br> Address {{item.Address}}</ion-card-content>
+    </ion-card>
   </ion-content>
 </ion-content>

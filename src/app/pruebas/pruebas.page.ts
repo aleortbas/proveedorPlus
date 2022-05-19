@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { fromDocRef } from '@angular/fire/compat/firestore';
 import { NavController, AlertController } from '@ionic/angular';
 //import { resolve } from 'dns';
-import { HttpService } from '../services/http.service';
 import { CrudServiceService } from '../crud-service.service';
-
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-pruebas',
   templateUrl: './pruebas.page.html',
   styleUrls: ['./pruebas.page.scss'],
 })
-export class PruebasPage{
+export class PruebasPage implements OnInit{
   url: string;
   data: string;
   usuarios: any;
@@ -19,29 +19,57 @@ export class PruebasPage{
   userAge: number;
   userAddress: string;
 
-  items = [
-    { titulo:'Ingeniero', descripcion:'Mecatronica', imagenUrl: "../assets/img/login2.png"},
-    { titulo:'Medico', descripcion:'Cirujano'},
-    { titulo:'Abogado', descripcion:'Civil'},
-    { titulo:'Quimico', descripcion:'Farmaceuta'}
-  ];
+  usuario ={
+    email: "",
+    password: "",
+  }
 
+  listaUsuarios = [];
+
+  
   Mostrar:boolean;
   mostrar = true;
 
 
-  constructor(private http:HttpService, public NavCtrl:NavController, private crudservice: CrudServiceService) { }
+  constructor(public NavCtrl:NavController, private crudservice: CrudServiceService,
+    private database: DatabaseService) { }
 
-  cargar(){
-    this.http.loadUsers().then(
-      (res: any)=> {
-        this.usuarios = res.results;
-      },
-      (error) =>{
-        console.error(error);
-      }
-    );
-  }  
+
+  altaUsuario(){
+    this.database.create('Usuarios', this.usuario).then(res => {
+      console.log(res);
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+
+  eliminar(id){
+    this.database.delete('Usuarios', id).then (res => {
+      alert("Datos eliminados");
+    }).catch(err => {
+      console.log("Error al elminar");
+    });
+  }
+
+  modificar(){
+    let id = "jX6cHVc7fwwAJ0abC9vO";
+    this.database.update('Usuarios', id, this.usuario).then(res =>{
+      alert("Datos modificados");
+    }).catch(err => {
+      console.log("Error al modificar");
+    });
+  }
+
+  obtenerPorId(id){
+    this.database.getById('Usuarios', id).then(res =>{
+      res.subscribe(docRef => {
+        let usuario = docRef.data();
+        usuario['id'] = docRef.id
+        console.log(docRef.data())
+      })
+    })
+  }
+  
   /*Post(){
     const datos = {nombre:'Javier', emial:'jprerez@gmail.com'}
     const options = {
@@ -59,7 +87,23 @@ export class PruebasPage{
   }*/
 
   ngOnInit() {
-    this.crudservice.read_User().subscribe(data => {
+
+    this.database.getAll('Usuarios').then(firebaseResponse => {
+      firebaseResponse.subscribe(listaUsuariosRef => {
+
+        this.listaUsuarios = listaUsuariosRef.map(usuarioRef => {
+          let usuario = usuarioRef.payload.doc.data();
+          usuario['id'] = usuarioRef.payload.doc.id;
+          return usuario;
+        })
+        console.log(this.listaUsuarios);
+       /* listaUsuariosRef.forEach(usuarioRef => {
+          console.log(usuarioRef.payload.doc.data());
+        })*/
+      });
+    })
+
+    /*this.crudservice.read_User().subscribe(data => {
       this.user = data.map(e => {
         return{
           id: e.payload.doc.id,
@@ -69,7 +113,7 @@ export class PruebasPage{
           Address: e.payload.doc.data()['address'],
         }
       })
-    })
+    })*/
   }
 
   createRecord(){

@@ -81,5 +81,20 @@
       </ion-card-header>
       <ion-card-content>Age: {{item.Age}} <br> Address {{item.Address}}</ion-card-content>
     </ion-card>
+
+    <ion-card>
+      <ion-input type="email" placeholder="Ingrese su email" [(ngModel)]="usuario.email"></ion-input>
+      <ion-input type="password" placeholder="Ingrese su constraseña"[(ngModel)]="usuario.password"></ion-input>
+      <ion-button (click)="altaUsuario()">Alta Usuario</ion-button>
+    </ion-card>
+
+    <h6>Lista usuarios</h6>
+    <ul>
+      <li *ngFor="let user of listaUsuarios" (click)="eliminar(user.id)">{{user | json}}</li>
+      <!--<li *ngFor="let user of listaUsuarios" (click)="obtenerPorId(user.id)">{{user | json}}</li>-->
+    </ul>
+
+    <ion-button (click)="modificar()">Modificar usuario</ion-button>
+
   </ion-content>
 </ion-content>

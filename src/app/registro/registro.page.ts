@@ -50,6 +50,7 @@ export class RegistroPage implements OnInit {
       this.usuario = this.ionicForm.value;
       this.database.create('User', this.usuario).then(res => {
         console.log(res);
+        this.router.navigate(['ferre']);
       }).catch(err => {
         console.log(err);
       })

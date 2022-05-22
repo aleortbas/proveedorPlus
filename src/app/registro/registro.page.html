@@ -1,118 +1,147 @@
 <ion-header [translucent]="true" class="masterHeader">
   <ion-toolbar>
-    <ion-title>
-      Registro
-    </ion-title>
+    <ion-title> Registro </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="login">
-  <ion-header collapse="condense">
-  </ion-header>
+  <ion-header collapse="condense"> </ion-header>
 
-  <img src="assets\img\login2.png" alt="">
+  <img src="assets\img\login2.png" alt="" />
 
-<!--  
-      <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
-        
-        <ion-item lines="full">
-          <ion-label position="floating">Nombre</ion-label>
+  <form
+    [formGroup]="ionicForm"
+    (ngSubmit)="submitForm()"
+    class="card"
+    style="position: absolute; top: 100px; height: max-content"
+  >
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <ion-label>Nombre</ion-label>
           <ion-input formControlName="name" type="text"></ion-input>
-        </ion-item>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">
-          El nombre es necesario
-        </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.minlength">
-          El nombre podra tener minimo 2 caracteres.
-        </span>
+        </div>
+      </div>
 
-        <ion-item lines="full">
-          <ion-label position="floating">Email</ion-label>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl.name.errors?.required"
+      >
+        El nombre es necesario
+      </span>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl.name.errors?.minlength"
+      >
+        El nombre podra tener minimo 2 caracteres.
+      </span>
+
+      <div class="col">
+        <div class="form-group">
+          <ion-label>Email</ion-label>
           <ion-input formControlName="email" type="email"></ion-input>
-        </ion-item>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
-          El correo electronico es necesario
-        </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
-          Por favor ingrese un correo valido.
-        </span>
+        </div>
+      </div>
 
-        <ion-item lines="full">
-          <ion-label position="floating"></ion-label>
-          <ion-datetime (ionChange)="getDate($event)" formControlName="dop" [value]="defaultDate"></ion-datetime>
-        </ion-item>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl.email.errors?.required"
+      >
+        El correo electronico es necesario
+      </span>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl.email.errors?.pattern"
+      >
+        Por favor ingrese un correo valido.
+      </span>
 
-        <ion-item lines="full">
-          <ion-label position="floating">celular</ion-label>
-          <ion-input formControlName="mobile" type="text" maxlength="10"></ion-input>
-        </ion-item>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required">
-          El numero celular es necesario
-        </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.pattern">
-          Solo se permiten valores numericos.
-        </span>
+      <div class="grid-item">
+        <ion-datetime
+          (ionChange)="getDate($event)"
+          formControlName="dop"
+          [value]="defaultDate"
+        ></ion-datetime>
+      </div>
 
-        <i class="fa-solid fa-right-from-bracket fa-2x"></i>
+      <div class="col">
+        <div class="form-group">
+          <ion-label>celular</ion-label>
+          <ion-input
+            formControlName="mobile"
+            type="text"
+            maxlength="10"
+          ></ion-input>
+        </div>
+      </div>
+      
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl.mobile.errors?.required"
+      >
+        El numero celular es necesario
+      </span>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl.mobile.errors?.pattern"
+      >
+        Solo se permiten valores numericos.
+      </span>
 
-        <ion-row>
-          <ion-col>
-            <ion-button type="submit" expand="block">Enviar</ion-button>
-          </ion-col>
-        </ion-row>
-      </form>
-    -->
+      <div class="col">
+          <ion-button type="submit" expand="block">Enviar</ion-button>
+      </div>
+    </div>
+  </form>
 
-      <div class="card" style="  position: absolute;
+  <!-- <div class="card" style="  position: absolute;
       top: 100px; height: max-content;">
         <h2>Crear tu cuenta</h2>
         <div class="row">
           <div class="col">
             <div class="form-group">
               <ion-label>Nombre</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input type="text" placeholder="email" [(ngModel)]="usuario.email"></ion-input>
             </div>
           </div>
       
           <div class="col">
             <div class="form-group">
               <ion-label>Nombre de usuario</ion-label>
-              <ion-input type="email"></ion-input>
+              <ion-input type="email" placeholder="text" [(ngModel)]="usuario.username"></ion-input>
             </div>
           </div>
       
           <div class="col">
             <div class="form-group">
               <ion-label>Contraseña</ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-input type="password" placeholder="contraseña" [(ngModel)]="usuario.password"></ion-input>
             </div>
           </div>
       
           <div class="col">
             <div class="form-group">
               <ion-label>Celular</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input type="text" placeholder="celular" [(ngModel)]="usuario.phoneNumber"></ion-input>
             </div>
           </div>
       
           <div class="col">
             <div class="form-group">
               <ion-label>Direccion</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input type="text" placeholder="email" [(ngModel)]="usuario.address"></ion-input>
             </div>
           </div>
           
           <div class="grid-item">
-            <ion-datetime  (ionChange)="getDate($event)" formControlName="dop" [value]="defaultDate">
+            <ion-datetime  (ionChange)="getDate($event)" formControlName="dop" [value]="defaultDate" >
               <div slot="title">Fecha de nacimiento</div>
             </ion-datetime>
           </div>
 
           <div class="col">
-            <ion-button type="submit" (click)="go()">Enviar</ion-button>
+            <ion-button type="submit" (click)="crearUsuario()">Enviar</ion-button>
           </div>
         </div>
-      </div>
-  
+      </div>-->
 </ion-content>
-

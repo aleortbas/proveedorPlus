@@ -36,7 +36,7 @@ export class PruebasPage implements OnInit{
 
 
   altaUsuario(){
-    this.database.create('Usuarios', this.usuario).then(res => {
+    this.database.create('User', this.usuario).then(res => {
       console.log(res);
     }).catch(err => {
       console.log(err);

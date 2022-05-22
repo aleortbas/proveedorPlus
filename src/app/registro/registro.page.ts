@@ -41,14 +41,6 @@ export class RegistroPage implements OnInit {
     return this.ionicForm.controls;
   }
 
-  crearUsuario(){
-    this.database.create('User', this.usuario).then(res => {
-      console.log(res);
-    }).catch(err => {
-      console.log(err);
-    })
-  }
-
   submitForm(){
     this.isSubmitted = true;
     if (!this.ionicForm.valid) {
@@ -58,6 +50,8 @@ export class RegistroPage implements OnInit {
       this.usuario = this.ionicForm.value;
       this.database.create('User', this.usuario).then(res => {
         console.log(res);
+      }).catch(err => {
+        console.log(err);
       })
       console.log(this.usuario)
     }

@@ -17,17 +17,23 @@
   
     <ion-card-content>
 
-      <ion-item>
-        <ion-label position="floating"> <i class="fa-solid fa-user-astronaut" style="color: #BB86FC;"></i> Correo electronico</ion-label>
-        <ion-input [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating"> <i class="fa-solid fa-lock" style="color: #BB86FC;"></i> Contraseña </ion-label>
-        <ion-input [(ngModel)]="clave" type="password" placeholder="Contraseña"></ion-input>
-      </ion-item>
-
-      <ion-button (click)="go()">Iniciar</ion-button> 
+      <form [formGroup]="credentials" (ngSubmit)="login()">
+        <ion-item>
+          <ion-label position="floating"> <i class="fa-solid fa-user-astronaut" style="color: #BB86FC;"></i> Correo electronico</ion-label>
+          <ion-input formControlName="email" placeholder="Email" type="email"></ion-input>
+          <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"> Email invalido</ion-note>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating"> <i class="fa-solid fa-lock" style="color: #BB86FC;"></i> Contraseña </ion-label>
+          <ion-input formControlName="password" placeholder="Contraseña" type="password"></ion-input>
+          <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors"> Contraseña invalida</ion-note>
+        </ion-item>
+  
+        <ion-button type="submit" [disabled]="!credentials.valid">Iniciar</ion-button>
+        <ion-button type="button" (click)="register()">Crear Cuenta</ion-button> 
+      </form>
+    
       <ion-card-subtitle (click)="registro()">Crear usuario</ion-card-subtitle>
       <ion-card-subtitle (click)="prueba()">PRUEBAS</ion-card-subtitle>
 

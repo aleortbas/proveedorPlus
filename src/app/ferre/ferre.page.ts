@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-ferre',
@@ -8,7 +10,15 @@ import { Router } from '@angular/router';
 })
 export class FerrePage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    ) { }
+
+  async logout() {
+    await this.authService.logout();
+    this.router.navigateByUrl('/home', {replaceUrl:true});
+  }
 
   go(){
     this.router.navigate(['home']); 

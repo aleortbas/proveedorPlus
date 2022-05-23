@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { redirectLoggedInTo, redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['home']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['ferre']);
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    ...canActivate(redirectLoggedInToHome)
   },
   {
     path: '',
@@ -13,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'ferre',
-    loadChildren: () => import('./ferre/ferre.module').then( m => m.FerrePageModule)
+    loadChildren: () => import('./ferre/ferre.module').then( m => m.FerrePageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'martillos',

@@ -101,6 +101,10 @@ const routes: Routes = [
     path: 'soporte',
     loadChildren: () => import('./soporte/soporte.module').then( m => m.SoportePageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
 ];
 
 @NgModule({

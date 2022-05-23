@@ -25,6 +25,14 @@
     <ion-buttons (click)="go()" class="car" slot="end">
       <!--<img src="assets\img\tooLogo.png" alt="">-->
       <i class="fa-solid fa-user-tie fa-2x" style="color: #BB86FC;"></i>
+      <ion-avatar (click)="changeImage()">
+        <img [src]="profile.imageUrl" *ngIf="profile?.imageUrl; else placeholder_avatar;">
+        <ng-template #placeholder_avatar>
+          <div class="fallback">
+            <p>select avatar</p>
+          </div>
+        </ng-template>
+      </ion-avatar>
     </ion-buttons> 
   </ion-toolbar>
   <!--NAV BAR-->

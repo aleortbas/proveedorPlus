@@ -1,8 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { CrudServiceService } from '../crud-service.service';
-import { DatabaseService } from '../services/database.service';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { AvatarService } from '../services/avatar.service';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-registro',
@@ -10,51 +17,105 @@ import { DatabaseService } from '../services/database.service';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  ionicForm: FormGroup;
-  defaultDate = "1985-03-07";
-  isSubmitted = false;
+  credentials: FormGroup;
+  profile = null;
 
-  usuario ={}
+  constructor(
+    public formBuilder: FormBuilder,
+    private router: Router,
+    private loadingController: LoadingController,
+    private alertController: AlertController,
+    private authService: AuthService,
+    private avatarService: AvatarService,
+  ) {
+    
+  }
+  test:any;
 
-  constructor(public formBuilder: FormBuilder, private router: Router, private database: DatabaseService) { }
-
-  go(){
+  go() {
     this.router.navigate(['ferre']);
   }
 
   ngOnInit() {
-    this.ionicForm = this.formBuilder.group({
+    this.credentials = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.pattern('[a-z 0-9]+@[a-z 0-9.-]+\.[a-z]{3}$')]],
-      dob: [this.defaultDate],
-      mobile: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
-    })
-  }
-  
-  getDate(e) {
-    let date = new Date(e.target.value).toISOString().substring(0, 10);
-    this.ionicForm.get('dob').setValue(date, {
-      onlyself: true
-    })
-  }
-  get errorControl(){
-    return this.ionicForm.controls;
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      celular: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      addres: ['', [Validators.required, Validators.minLength(2)]],
+    });
   }
 
-  submitForm(){
-    this.isSubmitted = true;
-    if (!this.ionicForm.valid) {
-      console.log('Ingresar los valores requeridos:!')
-      return false;
-    } else{
-      this.usuario = this.ionicForm.value;
-      this.database.create('User', this.usuario).then(res => {
-        console.log(res);
-        this.router.navigate(['ferre']);
-      }).catch(err => {
-        console.log(err);
-      })
-      console.log(this.usuario)
+  get name() {
+    return this.credentials.get('name');
+  }
+
+  get email() {
+    return this.credentials.get('email');
+  }
+ 
+  get password() {
+    return this.credentials.get('password');
+  }  
+
+  get celular() {
+    return this.credentials.get('celular');
+  }
+
+  get addres() {
+    return this.credentials.get('addres');
+  }
+
+  async register() {
+    const loading = await this.loadingController.create();
+    await loading.present();
+ 
+    const user = await this.authService.register(this.credentials.value);
+    await loading.dismiss();
+ 
+    if (user) {
+      this.showAlert('Complete el formulario', 'Para acceder a la aplicacion');
+    } else {  
+      this.showAlert('Registration failed', 'Please try again!');
     }
+  }
+
+  async changeImage() {
+    const name = this.credentials.value.name;
+    const address = this.credentials.value.addres;
+    const phone = this.credentials.value.celular;
+    console.log("phone"+phone)
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Photos, // Camera, Photos or Prompt!
+    });
+ 
+    if (image) {
+      const loading = await this.loadingController.create();
+      await loading.present();
+ 
+      const result = await this.avatarService.uploadUserInfo(image, name, phone, address);
+      loading.dismiss();
+ 
+      if (!result) {
+        const alert = await this.alertController.create({
+          header: 'Upload failed',
+          message: 'There was a problem uploading your avatar.',
+          buttons: ['OK'],
+        });
+        await alert.present();
+      }
+    }
+  }
+
+  async showAlert(header, message) {
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 }

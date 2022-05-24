@@ -42,8 +42,9 @@ export class FerrePage implements OnInit {
     if (image) {
       const loading = await this.loadingController.create();
       await loading.present();
+      const prueba = 'prueba';
  
-      const result = await this.avatarService.uploadImage(image);
+      const result = await this.avatarService.uploadUserInfo(image, 'hola', 'hola', 'hola');
       loading.dismiss();
  
       if (!result) {

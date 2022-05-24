@@ -10,8 +10,8 @@
   <img src="assets\img\login2.png" alt="" />
 
   <form
-    [formGroup]="ionicForm"
-    (ngSubmit)="submitForm()"
+    [formGroup]="credentials"
+    (ngSubmit)="login()"
     class="card"
     style="position: absolute; top: 100px; height: max-content"
   >
@@ -19,7 +19,8 @@
       <div class="col">
         <div class="form-group">
           <ion-label>Nombre</ion-label>
-          <ion-input formControlName="name" type="text"></ion-input>
+          <ion-input formControlName="name" placeholder="Nombre" type="text"></ion-input>
+          <ion-note slot="error" *ngIf="(name.dirty || name.touched) && name.errors"> Email invalido</ion-note>
         </div>
       </div>
 
@@ -39,7 +40,8 @@
       <div class="col">
         <div class="form-group">
           <ion-label>Email</ion-label>
-          <ion-input formControlName="email" type="email"></ion-input>
+          <ion-input formControlName="email" placeholder="Email" type="email"></ion-input>
+          <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"> Contraseña invalida</ion-note>
         </div>
       </div>
 
@@ -56,40 +58,80 @@
         Por favor ingrese un correo valido.
       </span>
 
-      <div class="grid-item">
-        <ion-datetime
-          (ionChange)="getDate($event)"
-          formControlName="dop"
-          [value]="defaultDate"
-        ></ion-datetime>
+      <div class="col">
+        <div class="form-group">
+          <ion-label>Contraseña</ion-label>
+          <ion-input formControlName="password" placeholder="Contraseña" type="password"></ion-input>
+          <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors"> Contraseña invalida</ion-note>
+        </div>
       </div>
+
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl.password.errors?.required"
+      >
+        El correo electronico es necesario
+      </span>
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl.password.errors?.pattern"
+      >
+        Por favor ingrese un correo valido.
+      </span>
 
       <div class="col">
         <div class="form-group">
-          <ion-label>celular</ion-label>
-          <ion-input
-            formControlName="mobile"
-            type="text"
-            maxlength="10"
-          ></ion-input>
+          <ion-label>Celular</ion-label>
+          <ion-input formControlName="celular" placeholder="Celular" type="text"></ion-input>
+          <ion-note slot="error" *ngIf="(celular.dirty || celular.touched) && celular.errors"> Email invalido</ion-note>
         </div>
       </div>
       
       <span
         class="error ion-padding"
-        *ngIf="isSubmitted && errorControl.mobile.errors?.required"
+        *ngIf="isSubmitted && errorControl.celular.errors?.required"
       >
         El numero celular es necesario
       </span>
       <span
         class="error ion-padding"
-        *ngIf="isSubmitted && errorControl.mobile.errors?.pattern"
+        *ngIf="isSubmitted && errorControl.celular.errors?.pattern"
       >
         Solo se permiten valores numericos.
       </span>
 
       <div class="col">
-          <ion-button type="submit" expand="block">Enviar</ion-button>
+        <div class="form-group">
+          <ion-label>Direccion</ion-label>
+          <ion-input formControlName="addres" placeholder="Direccion" type="text"></ion-input>
+          <ion-note slot="error" *ngIf="(addres.dirty || addres.touched) && addres.errors"> Email invalido</ion-note>
+        </div>
+      </div>
+      
+      <span
+        class="error ion-padding"
+        *ngIf="isSubmitted && errorControl.addres.errors?.required"
+      >
+        La direccion es necesaria.
+      </span>
+
+      <div class="col">
+        <div class="form-group">
+          <ion-label>Foto</ion-label>
+          <ion-avatar (click)="changeImage()">
+            <img [src]="profile.imageUrl" *ngIf="profile?.imageUrl; else placeholder_avatar;">
+            <ng-template #placeholder_avatar>
+              <div class="fallback">
+                <p>select avatar</p>
+              </div>
+            </ng-template>
+          </ion-avatar>
+        </div>
+      </div>
+
+      <div class="col">
+        <ion-button type="button" (click)="register()">Crear Cuenta</ion-button>  
+        <ion-button type="button" (click)="changeImage()">Agregar info</ion-button>
       </div>
     </div>
   </form>

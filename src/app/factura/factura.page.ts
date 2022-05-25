@@ -24,18 +24,11 @@ export class FacturaPage implements OnInit {
     public alertController: AlertController,
     public toastController: ToastController
   ) {
-    // this.activatedRouter.paramMap.subscribe(
-    // (data) => {
-    // console.log(data)
-    //}
-    //)
-
-    let test = (this.data = this.activatedRouter.snapshot.params['marca']);
-    const pruebaSplit = test.split(/[\:,]+/);
-
-    this.nombre = pruebaSplit[1].replace('"', ' ').replace('"', ' ');
-    this.precio = pruebaSplit[5];
-    this.tipo = pruebaSplit[7].replace('"', ' ').replace('"', ' ');
+    
+    const captura = router.getCurrentNavigation().extras.state.example;
+    
+    this.precio = captura[0]
+    this.nombre = captura[1]
   }
 
   atras() {

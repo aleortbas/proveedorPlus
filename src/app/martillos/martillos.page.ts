@@ -1,69 +1,82 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DatabaseService } from '../services/database.service';
+import { CrudServiceService } from '../crud-service.service';
+
 
 @Component({
   selector: 'app-martillos',
-  templateUrl: './martillos.page.html',
+  templateUrl: './martillos.page.html', 
   styleUrls: ['./martillos.page.scss'],
 })
 export class MartillosPage implements OnInit {
   martillo: string;
   precio: string;
+  userName: string;
+  userAge: number;
+  userAddress: string;
+  listaMartillos = [];
 
-  martillos = [
-    {
-      marca: 'Karson',
-      descripcion: 'Martillo una 13 onzas mango madera',
-      precios: 39000,
-      tipo: 'martillo',
-      imagenUrl: '../assets/img/marillokarson.jpg',
-    },
-    {
-      marca: 'Redline',
-      descripcion: 'Martillo carpintero 20 onzas mango fibra',
-      precios: 45000,
-      tipo: 'martillo',
-      imagenUrl: '../assets/img/martilloRedline.jpg',
-    },
-    {
-      marca: 'Uberman',
-      descripcion: 'Combo con mango FV',
-      precios: 59900,
-      tipo: 'martillo',
-      imagenUrl: '../assets/img/martilloUberman.jpg',
-    },
-  ];
-
-  constructor(private router: Router, private activatedRouter: ActivatedRoute) {
-    //this.activatedRouter.paramMap.subscribe(
-    //(data) => {
-    //console.log(data)
-    //}
-    //)
-  }
+  constructor(
+    private router: Router,
+    private activatedRouter: ActivatedRoute,
+    private database: DatabaseService,
+    private crudservice: CrudServiceService
+  ) {}
 
   atras() {
     this.router.navigate(['ferre']);
   }
 
   factura(index) {
-    let valor; // = JSON.stringify(this.martillos[0]);
+    let valor;
 
     switch (index) {
       case 0:
-        valor = JSON.stringify(this.martillos[0]);
-        this.router.navigate(['factura/' + valor]);
+        valor = this.listaMartillos[0];
+        const arreglo = [
+          valor.precios,
+          valor.marca
+        ]
+        console.log(arreglo)
+        this.router.navigate(['factura/'], {state: {example: arreglo}});
         break;
       case 1:
-        valor = JSON.stringify(this.martillos[1]);
+        valor = JSON.stringify(this.listaMartillos[1]);
         this.router.navigate(['factura/' + valor]);
         break;
       case 2:
-        valor = JSON.stringify(this.martillos[2]);
+        valor = JSON.stringify(this.listaMartillos[2]);
         this.router.navigate(['factura/' + valor]);
         break;
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.database.getAll('martillos').then((firebaseResponse) => {
+      firebaseResponse.subscribe((listamartilloRef) => {
+        this.listaMartillos = listamartilloRef.map((martilloRef) => {
+          let martillo = martilloRef.payload.doc.data();
+          martillo['id'] = martilloRef.payload.doc.id;
+          return martillo;
+        });
+      });
+    });
+  }
+  createRecord(){
+    let record = {};
+    record['name'] = this.userName;
+    record['age'] = this.userAge;
+    record['address'] = this.userAddress;
+
+    this.crudservice.create_NewUser(record).then(res => {
+      this.userName = "";
+      this.userAge = undefined;
+      this.userAddress = "";
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error)
+    });
+  }
 }

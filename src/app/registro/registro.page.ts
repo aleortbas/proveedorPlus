@@ -28,7 +28,9 @@ export class RegistroPage implements OnInit {
     private authService: AuthService,
     private avatarService: AvatarService,
   ) {
-    
+    this.avatarService.getUserProfile().subscribe((data) => {
+      this.profile = data;
+    });
   }
   test:any;
 

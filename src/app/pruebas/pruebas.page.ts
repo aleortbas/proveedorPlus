@@ -70,25 +70,9 @@ export class PruebasPage implements OnInit{
     })
   }
   
-  /*Post(){
-    const datos = {nombre:'Javier', emial:'jprerez@gmail.com'}
-    const options = {
-      headers: {
-        'Content-Type':'application/x-www-form-urlencode'
-      }
-    };
-    const url = 'http://httpbin.org';
-    return new Promise(resolve => {
-      this.http.post(url, JSON.stringify(datos), options)
-      .subcribe(data => {
-        resolve(data)
-      })
-    })
-  }*/
-
   ngOnInit() {
 
-    this.database.getAll('Usuarios').then(firebaseResponse => {
+    this.database.getAll('users').then(firebaseResponse => {
       firebaseResponse.subscribe(listaUsuariosRef => {
 
         this.listaUsuarios = listaUsuariosRef.map(usuarioRef => {
@@ -97,23 +81,8 @@ export class PruebasPage implements OnInit{
           return usuario;
         })
         console.log(this.listaUsuarios);
-       /* listaUsuariosRef.forEach(usuarioRef => {
-          console.log(usuarioRef.payload.doc.data());
-        })*/
       });
     })
-
-    /*this.crudservice.read_User().subscribe(data => {
-      this.user = data.map(e => {
-        return{
-          id: e.payload.doc.id,
-          isEdit: false,
-          Name: e.payload.doc.data()['name'],
-          Age: e.payload.doc.data()['age'],
-          Address: e.payload.doc.data()['address'],
-        }
-      })
-    })*/
   }
 
   createRecord(){

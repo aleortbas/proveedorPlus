@@ -98,6 +98,8 @@ export class RegistroPage implements OnInit {
  
       const result = await this.avatarService.uploadUserInfo(image, name, phone, address);
       loading.dismiss();
+      this.router.navigateByUrl('/ferre', { replaceUrl: true });
+
  
       if (!result) {
         const alert = await this.alertController.create({

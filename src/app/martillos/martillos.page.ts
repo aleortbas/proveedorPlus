@@ -75,20 +75,4 @@ export class MartillosPage implements OnInit {
       });
     });
   }
-  createRecord() {
-    let record = {};
-    record['name'] = this.userName;
-    record['age'] = this.userAge;
-    record['address'] = this.userAddress;
-
-    this.crudservice.create_NewUser(record).then(res => {
-      this.userName = "";
-      this.userAge = undefined;
-      this.userAddress = "";
-      console.log(res);
-    })
-      .catch(error => {
-        console.log(error)
-      });
-  }
 }

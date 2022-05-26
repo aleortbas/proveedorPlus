@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-metros',
@@ -7,59 +8,61 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./metros.page.scss'],
 })
 export class MetrosPage implements OnInit {
+  listaMetros = []
 
-  metros = [
-    {
-      marca: 'NTX',
-      descripcion: 'Flexómetro 3m X 16mm X 120Unds',
-      precios: 449900,
-      tipo: 'metro',
-      imagenUrl: '../assets/img/metroNTX.jpg',
-    },
-    {
-      marca: 'Dewalt',
-      descripcion: 'Cinta Métrica Flexometro 5mt Dewalt',
-      precios: 39900,
-      tipo: 'metro',
-      imagenUrl: '../assets/img/metroDewalt.jpg',
-    },
-    {
-      marca: 'Bosch',
-      descripcion: 'Medidor Láser Bosch Alcnce 120Mtrs con Bluetooth GLM 120 C',
-      precios: 1417900,
-      tipo: 'metro',
-      imagenUrl: '../assets/img/metroLaserBosch.jpg',
-    },
-  ];
-
-  constructor(private router:Router) { }
+  constructor(
+    private router:Router,
+    private database: DatabaseService,
+    ) { }
 
   atras() {
     this.router.navigate(['ferre']);
   }
 
   factura(index) {
-    let valor; //= JSON.stringify(this.taladros[2].precios);
-    //console.log("TEST FORMA DE ENVIAR: " + valor);
+    let valor; 
+    let arreglo = [];
 
     switch (index) {
       case 0:
-        valor = JSON.stringify(this.metros[0]);
-        this.router.navigate(['factura/' + valor]);
+        valor = this.listaMetros[index];
+        arreglo = [
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
       case 1:
-        valor = JSON.stringify(this.metros[1]);
-        this.router.navigate(['factura/' + valor]);
+        valor = this.listaMetros[index];
+        arreglo = [
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
       case 2:
-        valor = JSON.stringify(this.metros[2]);
-        this.router.navigate(['factura/' + valor]);
-        //console.log("PRUEBA " + JSON.stringify(this.taladros[2].tipoHerremienta));
+        valor = this.listaMetros[index];
+        arreglo = [
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
     }
   }
 
   ngOnInit() {
+    this.database.getAll('metros').then((firebaseResponse) => {
+      firebaseResponse.subscribe((listamartilloRef) => {
+        this.listaMetros = listamartilloRef.map((martilloRef) => {
+          let martillo = martilloRef.payload.doc.data();
+          martillo['id'] = martilloRef.payload.doc.id;
+          return martillo;
+        });
+      });
+    });
   }
-
 }

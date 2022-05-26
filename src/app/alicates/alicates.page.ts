@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-alicates',
@@ -7,60 +8,62 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./alicates.page.scss'],
 })
 export class AlicatesPage implements OnInit {
+  listaAlicate = [];
 
-  alicates = [
-    {
-      marca: 'Stanley',
-      descripcion: 'Set Pinzas Pequeñas de 6 Piezas Stanley',
-      precios: 129900,
-      tipo: 'alicate',
-      imagenUrl: '../assets/img/alicateStanley.jpg',
-    },
-    {
-      marca: 'KARSON',
-      descripcion: 'Alicate 7 pulgadas electricista Tornado Tools P036-11',
-      precios: 11900,
-      tipo: 'alicate',
-      imagenUrl: '../assets/img/alicateKarson.jpg',
-    },
-    {
-      marca: 'Uberman',
-      descripcion: 'Alicate 8-pulg Multipropósito Ubermann',
-      precios: 99900,
-      tipo: 'alicate',
-      imagenUrl: '../assets/img/alicateuberman.jpg',
-    },
-  ];
-
-  constructor(private router:Router) { }
+  constructor(
+    private router: Router,
+    private database: DatabaseService,
+  ) { }
 
   atras() {
     this.router.navigate(['ferre']);
   }
 
   factura(index) {
-    let valor; //= JSON.stringify(this.taladros[2].precios);
-    //console.log("TEST FORMA DE ENVIAR: " + valor);
+    let valor;
+    let arreglo = [];
 
     switch (index) {
       case 0:
-        valor = JSON.stringify(this.alicates[0]);
-        this.router.navigate(['factura/' + valor]);
+        valor = this.listaAlicate[index];
+        arreglo = [
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
       case 1:
-        valor = JSON.stringify(this.alicates[1]);
-        this.router.navigate(['factura/' + valor]);
+        valor = this.listaAlicate[index];
+        arreglo = [
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
       case 2:
-        valor = JSON.stringify(this.alicates[2]);
-        this.router.navigate(['factura/' + valor]);
-        //console.log("PRUEBA " + JSON.stringify(this.taladros[2].tipoHerremienta));
+        valor = this.listaAlicate[index];
+        arreglo = [
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
     }
   }
 
 
   ngOnInit() {
+    this.database.getAll('alicate').then((firebaseResponse) => {
+      firebaseResponse.subscribe((listamartilloRef) => {
+        this.listaAlicate = listamartilloRef.map((martilloRef) => {
+          let martillo = martilloRef.payload.doc.data();
+          martillo['id'] = martilloRef.payload.doc.id;
+          return martillo;
+        });
+      });
+    });
   }
-
 }

@@ -22,29 +22,24 @@
   </ion-toolbar>
   <!--NAV BAR-->
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button  (click)="factura()">
-      <ion-icon name="add" style="color: #141416;"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
- <!--CARD--> 
- <ion-card>
-  <ion-card-content>
-
-    <ion-card *ngFor="let alicate of alicates; let i = index" class="innerCard" (click)="factura(i)">
-      <img [src]=alicate.imagenUrl (click)="factura(i)"/>
-      <ion-card-header>
-        <ion-card-subtitle key=""> {{alicate.marca}} </ion-card-subtitle>
-        <ion-card-title> {{alicate.descripcion}} </ion-card-title>
-        <ion-radio-group>
-          <ion-radio color="success" value="Uberman"></ion-radio>
-        </ion-radio-group>
-      </ion-card-header>
-    </ion-card>
-
-  </ion-card-content>
-</ion-card>
-<!--CARD-->
-
+  <ion-card>
+    <ion-card-content>
+      <ion-card
+        *ngFor="let alicate of listaAlicate; let i = index"
+        class="innerCard"
+        (click)="factura(i)"
+      >
+        <img [src]="alicate.imagenUrl" (click)="factura(i)" />
+        <ion-card-header>
+          <ion-card-subtitle key="">
+            {{alicate.marca | json }}
+          </ion-card-subtitle>
+          <ion-card-title> {{alicate.descripcion | json }} </ion-card-title>
+          <ion-card-subtitle key="">
+            {{alicate.precios | json }}
+          </ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

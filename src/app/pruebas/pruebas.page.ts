@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { fromDocRef } from '@angular/fire/compat/firestore';
 import { NavController, AlertController } from '@ionic/angular';
+import { Console } from 'console';
 //import { resolve } from 'dns';
 import { CrudServiceService } from '../crud-service.service';
 import { DatabaseService } from '../services/database.service';
@@ -36,7 +37,7 @@ export class PruebasPage implements OnInit{
 
 
   altaUsuario(){
-    this.database.create('User', this.usuario).then(res => {
+    this.database.create('Taladro', this.usuario).then(res => {
       console.log(res);
     }).catch(err => {
       console.log(err);

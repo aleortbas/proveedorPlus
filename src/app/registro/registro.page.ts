@@ -28,9 +28,6 @@ export class RegistroPage implements OnInit {
     private authService: AuthService,
     private avatarService: AvatarService,
   ) {
-    this.avatarService.getUserProfile().subscribe((data) => {
-      this.profile = data;
-    });
   }
   test:any;
 
@@ -86,6 +83,7 @@ export class RegistroPage implements OnInit {
     const name = this.credentials.value.name;
     const address = this.credentials.value.addres;
     const phone = this.credentials.value.celular;
+    
     console.log("phone"+phone)
     const image = await Camera.getPhoto({
       quality: 90,

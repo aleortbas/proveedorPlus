@@ -23,6 +23,7 @@ export class FerrePage implements OnInit {
     ) {
       this.avatarService.getUserProfile().subscribe((data) => {
         this.profile = data;
+        console.log(this.profile.id)
       });
      }
 

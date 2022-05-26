@@ -36,7 +36,8 @@ export class MartillosPage implements OnInit {
         valor = this.listaMartillos[0];
         const arreglo = [
           valor.precios,
-          valor.marca
+          valor.marca,
+          valor.tipo
         ]
         console.log(arreglo)
         this.router.navigate(['factura/'], {state: {example: arreglo}});

@@ -30,25 +30,36 @@ export class MartillosPage implements OnInit {
 
   factura(index) {
     let valor;
+    let arreglo = [];
 
     switch (index) {
       case 0:
-        valor = this.listaMartillos[0];
-        const arreglo = [
+        valor = this.listaMartillos[index];
+         arreglo = [
           valor.precios,
           valor.marca,
           valor.tipo
         ]
-        console.log(arreglo)
+        //console.log("INDEX: "+index)
         this.router.navigate(['factura/'], {state: {example: arreglo}});
         break;
       case 1:
-        valor = JSON.stringify(this.listaMartillos[1]);
-        this.router.navigate(['factura/' + valor]);
+        valor = this.listaMartillos[index];
+         arreglo = [
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], {state: {example: arreglo}});
         break;
       case 2:
-        valor = JSON.stringify(this.listaMartillos[2]);
-        this.router.navigate(['factura/' + valor]);
+        valor = this.listaMartillos[index];
+        arreglo = [
+         valor.precios,
+         valor.marca,
+         valor.tipo
+       ]
+       this.router.navigate(['factura/'], {state: {example: arreglo}});
         break;
     }
   }

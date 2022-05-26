@@ -6,7 +6,7 @@ import { CrudServiceService } from '../crud-service.service';
 
 @Component({
   selector: 'app-martillos',
-  templateUrl: './martillos.page.html', 
+  templateUrl: './martillos.page.html',
   styleUrls: ['./martillos.page.scss'],
 })
 export class MartillosPage implements OnInit {
@@ -22,7 +22,7 @@ export class MartillosPage implements OnInit {
     private activatedRouter: ActivatedRoute,
     private database: DatabaseService,
     private crudservice: CrudServiceService
-  ) {}
+  ) { }
 
   atras() {
     this.router.navigate(['ferre']);
@@ -35,31 +35,31 @@ export class MartillosPage implements OnInit {
     switch (index) {
       case 0:
         valor = this.listaMartillos[index];
-         arreglo = [
+        arreglo = [
           valor.precios,
           valor.marca,
           valor.tipo
         ]
         //console.log("INDEX: "+index)
-        this.router.navigate(['factura/'], {state: {example: arreglo}});
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
       case 1:
         valor = this.listaMartillos[index];
-         arreglo = [
+        arreglo = [
           valor.precios,
           valor.marca,
           valor.tipo
         ]
-        this.router.navigate(['factura/'], {state: {example: arreglo}});
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
       case 2:
         valor = this.listaMartillos[index];
         arreglo = [
-         valor.precios,
-         valor.marca,
-         valor.tipo
-       ]
-       this.router.navigate(['factura/'], {state: {example: arreglo}});
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
     }
   }
@@ -75,7 +75,7 @@ export class MartillosPage implements OnInit {
       });
     });
   }
-  createRecord(){
+  createRecord() {
     let record = {};
     record['name'] = this.userName;
     record['age'] = this.userAge;
@@ -87,8 +87,8 @@ export class MartillosPage implements OnInit {
       this.userAddress = "";
       console.log(res);
     })
-    .catch(error => {
-      console.log(error)
-    });
+      .catch(error => {
+        console.log(error)
+      });
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { DatabaseService } from '../services/database.service';
+import { CrudServiceService } from '../crud-service.service';
 
 @Component({
   selector: 'app-taladros',
@@ -7,61 +9,61 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./taladros.page.scss'],
 })
 export class TaladrosPage implements OnInit {
-
-  taladros = [
-    {
-      marca: 'Bosch Taladro Percutor',
-      descripcion: 'Taladro Percutor 1 2-pulg 18V I-L 1.5Ah',
-      precios: 78900,
-      tipo: 'taladro',
-      imagenUrl: '../assets/img/taladroPercutor.jpg',
-    },
-    {
-      marca: 'Black+Decker',
-      descripcion:
-        'Taladro Inalámbrico Rotación 3 8-pulg 12V  Accesorios  Estuche Plástico Black+Decker',
-      precios: 199000,
-      tipo: 'taladro',
-      imagenUrl: '../assets/img/blackDeckerTaladro.jpg',
-    },
-    {
-      marca: 'Dewalt',
-      descripcion:
-        'Kit Taladro Percutor 1 2-pulg 20V Max Brushless Con 1 Batería 2Ah',
-      precios: 559000,
-      tipo: 'taladro',
-      imagenUrl: '../assets/img/DewaltTaladro.jpg',
-    },
-  ];
+  listaTaladros = []
 
   constructor(
     private router: Router,
-    private activatedRouter: ActivatedRoute
-  ) {}
+    private database: DatabaseService,
+    private crudservice: CrudServiceService
+  ) { }
 
   atras() {
     this.router.navigate(['ferre']);
   }
 
   factura(index) {
-    let valor; //= JSON.stringify(this.taladros[2].precios);
-    //console.log("TEST FORMA DE ENVIAR: " + valor);
+    let valor;
+    let arreglo = []
 
     switch (index) {
       case 0:
-        valor = JSON.stringify(this.taladros[0]);
-        this.router.navigate(['factura/' + valor]);
+        valor = this.listaTaladros[index];
+        arreglo = [
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
       case 1:
-        valor = JSON.stringify(this.taladros[1]);
-        this.router.navigate(['factura/' + valor]);
+        valor = this.listaTaladros[index];
+        arreglo = [
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
       case 2:
-        valor = JSON.stringify(this.taladros[2]);
-        this.router.navigate(['factura/' + valor]);
-        //console.log("PRUEBA " + JSON.stringify(this.taladros[2].tipoHerremienta));
+        valor = this.listaTaladros[index];
+        arreglo = [
+          valor.precios,
+          valor.marca,
+          valor.tipo
+        ]
+        this.router.navigate(['factura/'], { state: { example: arreglo } });
         break;
     }
   }
-  ngOnInit() {}
+  ngOnInit() { 
+    this.database.getAll('taladro').then((firebaseResponse) => {
+      firebaseResponse.subscribe((listamartilloRef) => {
+        this.listaTaladros = listamartilloRef.map((martilloRef) => {
+          let martillo = martilloRef.payload.doc.data();
+          martillo['id'] = martilloRef.payload.doc.id;
+          return martillo;
+        });
+      });
+    });
+  }
 }

@@ -22,29 +22,27 @@
   </ion-toolbar>
   <!--NAV BAR-->
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button  (click)="factura()">
-      <ion-icon name="add" style="color: #141416;"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 
- <!--CARD--> 
+ <!--CARD-->
  <ion-card>
   <ion-card-content>
-
-    <ion-card *ngFor="let taladro of taladros; let i = index" class="innerCard" (click)="factura(i)">
-      <img [src]=taladro.imagenUrl (click)="factura(i)"/>
+    <ion-card
+      *ngFor="let taladro of listaTaladros; let i = index"
+      class="innerCard"
+      (click)="factura(i)"
+    >
+      <img [src]="taladro.imagenUrl" (click)="factura(i)" />
       <ion-card-header>
-        <ion-card-subtitle key=""> {{taladro.marca}} </ion-card-subtitle>
-        <ion-card-title> {{taladro.descripcion}} </ion-card-title>
-        <ion-radio-group>
-          <ion-radio color="success" value="Uberman"></ion-radio>
-        </ion-radio-group>
+        <ion-card-subtitle key="">
+          {{taladro.marca | json }}
+        </ion-card-subtitle>
+        <ion-card-title> {{taladro.descripcion | json }} </ion-card-title>
+        <ion-card-subtitle key="">
+          {{taladro.precios | json }}
+        </ion-card-subtitle>
       </ion-card-header>
     </ion-card>
-
   </ion-card-content>
 </ion-card>
-<!--CARD-->
 
 </ion-content>

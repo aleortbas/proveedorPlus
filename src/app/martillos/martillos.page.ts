@@ -21,7 +21,6 @@ export class MartillosPage implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute,
     private database: DatabaseService,
-    private crudservice: CrudServiceService
   ) { }
 
   atras() {

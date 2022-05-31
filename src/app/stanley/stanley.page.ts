@@ -9,7 +9,7 @@ import { DatabaseService } from '../services/database.service';
 })
 export class StanleyPage implements OnInit {
 
-  listaMartillos = [];
+  listaStanley = [];
 
   constructor(
     private router: Router,
@@ -20,7 +20,7 @@ export class StanleyPage implements OnInit {
   ngOnInit() {
     this.database.getAll('Stanley').then((firebaseResponse) => {
       firebaseResponse.subscribe((listamartilloRef) => {
-        this.listaMartillos = listamartilloRef.map((martilloRef) => {
+        this.listaStanley = listamartilloRef.map((martilloRef) => {
           let martillo = martilloRef.payload.doc.data();
           martillo['id'] = martilloRef.payload.doc.id;
           return martillo;

@@ -33,12 +33,12 @@
   </p>
 
   <ion-slides>
-    <ion-slide *ngFor="let martillo of listaMartillos; let i = index">
+    <ion-slide *ngFor="let stanley of listaStanley; let i = index">
       <div class="slide">
-        <img [src]="martillo.imagenUrl" />
-        <h2>{{martillo.nombre  | json }}</h2>
+        <img [src]="stanley.imagenUrl" />
+        <h2>{{stanley.nombre  | json }}</h2>
         <p>
-          {{martillo.Descripcion  | json }}
+          {{stanley.Descripcion  | json }}
         </p>
       </div>
     </ion-slide>

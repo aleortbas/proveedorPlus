@@ -33,13 +33,12 @@
   </p>
 
   <ion-slides>
-    <ion-slide *ngFor="let martillo of listaMartillos; let i = index">
+    <ion-slide *ngFor="let black of listaBlack; let i = index">
       <div class="slide">
-        <img [src]="martillo.imagenUrl" />
-        <h2>Welcome</h2>
+        <img [src]="black.imagenUrl" />
+        <h2>{{black.Nombre  | json }}</h2>
         <p>
-          The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a
-          demonstration of proper code use.
+          {{black.Descripcion  | json }}
         </p>
       </div>
     </ion-slide>

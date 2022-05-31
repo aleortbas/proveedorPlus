@@ -8,18 +8,18 @@ import { DatabaseService } from '../services/database.service';
   styleUrls: ['./black-decker.page.scss'],
 })
 export class BlackDeckerPage implements OnInit {
-  listaMartillos = [];
+  listaBlack = [];
 
   constructor(
     private router: Router,
     private activatedRouter: ActivatedRoute,
     private database: DatabaseService
-    ) { }
+  ) { }
 
   ngOnInit() {
-    this.database.getAll('martillos').then((firebaseResponse) => {
+    this.database.getAll('Black+Decker').then((firebaseResponse) => {
       firebaseResponse.subscribe((listamartilloRef) => {
-        this.listaMartillos = listamartilloRef.map((martilloRef) => {
+        this.listaBlack = listamartilloRef.map((martilloRef) => {
           let martillo = martilloRef.payload.doc.data();
           martillo['id'] = martilloRef.payload.doc.id;
           return martillo;
@@ -27,8 +27,10 @@ export class BlackDeckerPage implements OnInit {
       });
     });
   }
-
+  
   atras() {
     this.router.navigate(['marcas']);
   }
+
 }
+

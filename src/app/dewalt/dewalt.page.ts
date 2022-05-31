@@ -8,7 +8,7 @@ import { DatabaseService } from '../services/database.service';
   styleUrls: ['./dewalt.page.scss'],
 })
 export class DewaltPage implements OnInit {
-  listaMartillos = [];
+  listaDewalt = [];
 
   constructor(
     private router: Router,
@@ -17,9 +17,9 @@ export class DewaltPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.database.getAll('martillos').then((firebaseResponse) => {
+    this.database.getAll('DeWALT').then((firebaseResponse) => {
       firebaseResponse.subscribe((listamartilloRef) => {
-        this.listaMartillos = listamartilloRef.map((martilloRef) => {
+        this.listaDewalt = listamartilloRef.map((martilloRef) => {
           let martillo = martilloRef.payload.doc.data();
           martillo['id'] = martilloRef.payload.doc.id;
           return martillo;

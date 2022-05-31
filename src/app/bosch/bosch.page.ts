@@ -8,7 +8,7 @@ import { DatabaseService } from '../services/database.service';
   styleUrls: ['./bosch.page.scss'],
 })
 export class BoschPage implements OnInit {
-  listaMartillos = [];
+  listaBosch = [];
 
   constructor(
     private router: Router,
@@ -17,9 +17,9 @@ export class BoschPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.database.getAll('martillos').then((firebaseResponse) => {
+    this.database.getAll('Bosch').then((firebaseResponse) => {
       firebaseResponse.subscribe((listamartilloRef) => {
-        this.listaMartillos = listamartilloRef.map((martilloRef) => {
+        this.listaBosch = listamartilloRef.map((martilloRef) => {
           let martillo = martilloRef.payload.doc.data();
           martillo['id'] = martilloRef.payload.doc.id;
           return martillo;

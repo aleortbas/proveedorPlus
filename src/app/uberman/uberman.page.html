@@ -28,19 +28,18 @@
     </ion-label>
   </ion-item>
   <p>
-    <b>Ubermann</b> es la solución más completa para los profesionales más
+    <b>Uberman</b> es la solución más completa para los profesionales más
      exigentes. Siempre innovando en calidad, diseño, rendimiento y seguridad para 
      un máximo desempeño.
   </p>
 
   <ion-slides>
-    <ion-slide *ngFor="let martillo of listaMartillos; let i = index">
+    <ion-slide *ngFor="let Uberman of listaUberman; let i = index">
       <div class="slide">
-        <img [src]="martillo.imagenUrl" />
-        <h2>Welcome</h2>
+        <img [src]="Uberman.imagenUrl" />
+        <h2>{{Uberman.Nombre  | json }}</h2>
         <p>
-          The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a
-          demonstration of proper code use.
+          {{Uberman.Descripcion  | json }}
         </p>
       </div>
     </ion-slide>

@@ -1,0 +1,47 @@
+img{
+    width: 80%;
+    height: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+}
+
+img.imgSlide{
+    height: 10%; 
+    width: 80%;
+}
+
+ion-header{
+    --ion-background-color: #141416;
+}
+
+ion-content{
+    --ion-background-color: #141416;
+}
+
+ion-toolbar{
+    color: #ffffff;
+}
+
+h2{
+    text-align: center;
+    color: #BB86FC;
+}
+
+ion-slides{
+    width: fit-content;
+}
+
+p{
+    color: #ffffff;
+    font-size: small;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  

@@ -6,4 +6,43 @@
 
 <ion-content>
 
+  <!--NAV BAR-->
+  <ion-toolbar class="innerToolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-user-tie"></i></ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">ProveedorPlus </ion-title>
+  </ion-toolbar>
+  <!--NAV BAR-->
+
+  <ion-item>
+    <ion-label>
+      <h2>Lo mejor de la marca</h2>
+    </ion-label>
+  </ion-item>
+  <p>
+    La <b>iconica BLACK+DECKER,</b> Diseñamos productos para cada espacio del lugar donde vives para que con tus ideas e
+    inspiración lo conviertas en el hogar de tus sueños.
+  </p>
+
+  <ion-slides>
+    <ion-slide *ngFor="let martillo of listaMartillos; let i = index">
+      <div class="slide">
+        <img [src]="martillo.imagenUrl" />
+        <h2>Welcome</h2>
+        <p>
+          The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a
+          demonstration of proper code use.
+        </p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
 </ion-content>

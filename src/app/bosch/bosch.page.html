@@ -1,9 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>bosch</ion-title>
+    <ion-title>Bosch</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <!--NAV BAR-->
+  <ion-toolbar class="innerToolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-user-tie"></i></ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">ProveedorPlus </ion-title>
+  </ion-toolbar>
+  <!--NAV BAR-->
+
+  <ion-item>
+    <ion-label>
+      <h2>Lo mejor de la marca</h2>
+    </ion-label>
+  </ion-item>
+  <p>
+    Hoy en día  <b>el grupo Bosch en Colombia</b> cuenta con 128 empleados y un amplio portafolio de productos que incluyen
+    herramientas para el hogar y la industria, calentadores a gas y equipos de seguridad. 
+  </p>
+
+  <ion-slides>
+    <ion-slide *ngFor="let martillo of listaMartillos; let i = index">
+      <div class="slide">
+        <img [src]="martillo.imagenUrl" />
+        <h2>Welcome</h2>
+        <p>
+          The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a
+          demonstration of proper code use.
+        </p>
+      </div>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>

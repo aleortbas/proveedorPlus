@@ -22,9 +22,9 @@
       <ion-button>  </ion-button>
     </ion-buttons>
 
-    <ion-buttons (click)="go()" class="car" slot="end">
+    <ion-buttons class="car" slot="end">
       <!--<img src="assets\img\tooLogo.png" alt="">-->
-      <ion-avatar (click)="changeImage()">
+      <ion-avatar (click)="perfil()">
         <img [src]="profile.imageUrl" *ngIf="profile?.imageUrl; else placeholder_avatar;" class="profileImage">
         <ng-template #placeholder_avatar>
           <div class="fallback">

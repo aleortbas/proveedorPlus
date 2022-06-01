@@ -45,7 +45,7 @@ export class FerrePage implements OnInit {
       await loading.present();
       const prueba = 'prueba';
  
-      const result = await this.avatarService.uploadUserInfo(image, 'hola', 'hola', 'hola');
+      const result = await this.avatarService.uploadUserInfo(image, 'hola', 'hola', 'hola', 'hola', 'hola');
       loading.dismiss();
  
       if (!result) {
@@ -84,7 +84,10 @@ export class FerrePage implements OnInit {
     this.router.navigate(['marcas']);
   }
   Soluciones(){
-    this.router.navigate(['soporte'])
+    this.router.navigate(['soporte']);
+  }
+  perfil(){
+    this.router.navigate(['perfil-usuario'])
   }
 
   ngOnInit() {

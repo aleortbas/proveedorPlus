@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <style>
+    :root {
+      --ion-safe-area-top: 20px;
+      --ion-safe-area-bottom: 22px;
+    }
+  </style>
+
+  <!--NAV BAR-->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="atras()"><i class="fa-solid fa-house-chimney"></i></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button><i class="fa-solid fa-cart-shopping"></i></ion-button>
+    </ion-buttons>
+
+    <ion-title slot="start">ProveedorPlus </ion-title>
+    <ion-buttons class="car" slot="end">
+      <!--<img src="assets\img\tooLogo.png" alt="">-->
+    </ion-buttons>
+  </ion-toolbar>
+  <!--NAV BAR-->
+
+  <div class="card" style="position: absolute; top: 100px; height: max-content">
+    <div class="container">
+      <div class="image">
+        <ion-avatar>
+          <img *ngIf="profile?.imageUrl;" [src]="profile.imageUrl" />
+        </ion-avatar>
+      </div>
+      <div class="text" *ngIf="profile?.imageUrl;">
+        <h1>{{profile.Name}}</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          >
+          <ion-item>
+            <ion-label>
+              <h3 style="font-size: large">Email</h3>
+              <p *ngIf="profile?.imageUrl;"><b>{{profile.Email}}</b></p>
+            </ion-label>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          >
+          <ion-item>
+            <ion-label>
+              <h3 style="font-size: large">Direccion</h3>
+              <p *ngIf="profile?.imageUrl;"><b>{{profile.Address}}</b></p>
+            </ion-label>
+          </ion-item>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            >
+            <ion-item>
+              <ion-label>
+                <h3 style="font-size: large">Celular</h3>
+                <p *ngIf="profile?.imageUrl;"><b>{{profile.PhoneNumber}}</b></p>
+              </ion-label>
+            </ion-item>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

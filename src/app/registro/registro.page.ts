@@ -83,6 +83,9 @@ export class RegistroPage implements OnInit {
     const name = this.credentials.value.name;
     const address = this.credentials.value.addres;
     const phone = this.credentials.value.celular;
+    const email = this.credentials.value.email;
+    const password = this.credentials.value.password;
+
     
     console.log("phone"+phone)
     const image = await Camera.getPhoto({
@@ -96,7 +99,7 @@ export class RegistroPage implements OnInit {
       const loading = await this.loadingController.create();
       await loading.present();
  
-      const result = await this.avatarService.uploadUserInfo(image, name, phone, address);
+      const result = await this.avatarService.uploadUserInfo(image, name, phone, address, email, password);
       loading.dismiss();
       this.router.navigateByUrl('/ferre', { replaceUrl: true });
 
